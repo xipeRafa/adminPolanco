@@ -13,6 +13,6 @@ Currently, two official plugins are available:
 
 # sitio web de la Arquediocesis de Hermosillo
 
-https://xiperafa.github.io/AhilloPage/# adminPolanco
+https://xiperafa.github.io/adminPolanco
 # adminPolanco
 # adminPolanco
