@@ -41,6 +41,7 @@ export default function Navbar() {
 
         <NavLink to="/ordersSanCarlos"> Ordenes San Carlos</NavLink>
         <NavLink to="/productosBajos"   > Stock Bajo</NavLink>
+        <NavLink to="/entregas"> Entregas</NavLink>
      
     </div>  
 
