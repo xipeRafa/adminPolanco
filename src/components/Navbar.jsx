@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const windowWidth = window.innerWidth;
 
-  const InWidth =()=>{
+  const InWidth = () => {
     if(windowWidth<999){
       setIsActive(true)
     }
@@ -19,8 +19,8 @@ export default function Navbar() {
 
 
   return (
-<>
-    <div onClick={()=>setIsActive(!isActive)}  className="v" >
+<div className="navBar">
+    <div onClick={()=>setIsActive(!isActive)}  className="hamburger" >
       <div className="menu-bar">
         <div className="uno" />
         <div className="dos" />
@@ -45,7 +45,7 @@ export default function Navbar() {
      
     </div>  
 
-      </>
+      </div>
   );
 }
 

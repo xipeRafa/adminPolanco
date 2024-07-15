@@ -2,35 +2,47 @@
 
 
 
-export default function OrdersSanCarlos({arrOrders}) {
 
+
+
+export default function OrdersSanCarlos({ arrOrders }) {
     return (
-      <>
-        {arrOrders.filter(el => el.city === 'san carlos').map((el, i) => (
-          <div key={i} className='item'> 
+        <>
+            <h3>ORDENES DE SAN CARLOS</h3>
+            {arrOrders.filter((el) => el.city === "san carlos")
+                .map((el, i) => (
+                    <div key={i} className="item">
+                        <hr />
 
-            <div className='texto'>
-                <h3>Comprador: {el.buyer.name}</h3>
+                        <div className="texto">
 
-                    {
-                      el.items.map((el,i)=>(
-                          <h3>Producto ID: {el.id}</h3>
+                            <h3>Comprador: {el.buyer.name}</h3>
 
-                        ))
-                    }
+                            {el.items.map((el, i) => (
+                                <b>Producto ID: {el.id} <br /><br /></b>
+                            ))}
 
-                <p>Correo: {el.buyer.email}</p>
-                <p>Celular: {el.buyer.phone}</p>
-             <p>Ciudad: {el.city}</p>
-             <p>Clave de Compra: {el.id}</p>
+                            <p>Correo: {el.buyer.email}</p>
+                            <p>Celular: {el.buyer.phone}</p>
+                            <p>Ciudad: {el.city}</p>
+                            <p>Clave de Compra: {el.id}</p>
 
-             <p>Fecha: {el.date}</p>
-             <p>Total: {el.total}</p>
-            </div>
-          </div>
-        ))}
+                            <p>
+                                Fecha:{" "}
+                                {new Date(el.date).toLocaleDateString("es-ES", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </p>
 
-      </>
-    )
+                            <b>Total: {el.total}</b>
 
-  }
+                        </div>
+
+                        <hr />
+                    </div>
+                ))}
+        </>
+    );
+}

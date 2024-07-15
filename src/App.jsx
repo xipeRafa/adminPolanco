@@ -10,6 +10,7 @@ import db from './firebase/firebaseConfig'
 
 
 import Inicio from './pages/Inicio';
+import Entregados from './pages/Entregados';
 import Inventario from './pages/inventario/Inventario'
 
 import OrdersHillo from './pages/OrdersHillo'
@@ -71,7 +72,7 @@ export default function App() {
 
 
   return (
-    <div>
+    <div className='containerApp'>
         <br />
         <div className="titleLogo">
           <h2 className="w50">Polanco Guayaberas Admin System</h2>
@@ -89,7 +90,9 @@ export default function App() {
         <Route path="/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} />} />
         <Route path="/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} />} />
 
-        <Route path="/productosBajos" element={<ProductosBajos />} />
+        <Route path="/productosBajos" element={<ProductosBajos arr={arr} />} />
+
+        <Route path="/entregas" element={<Entregados arrOrders={arrOrders} />} />
 
 
         <Route path="*" element={<Inicio />} />
