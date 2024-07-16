@@ -1,9 +1,14 @@
 
  
 export default function OrdersHillo({ arrOrders }) {
+
+    const pendientes = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === false ).length
+    const entregados = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === true ).length
+
+
     return (
         <>
-            <h3>ORDENES DE HERMOSILLO</h3>
+            <h3>ORDENES DE HERMOSILLO <span className='number'> pendientes: {pendientes}</span> Entregados: {entregados}</h3>
             {arrOrders.filter((el) => el.city === "hermosillo")
                 .map((el, i) => (
 
@@ -32,6 +37,7 @@ export default function OrdersHillo({ arrOrders }) {
                                 })}
                             </p>
 
+                            <p><span className={!el.takenByCustomer ? 'bg-danger' : 'bg-blue'}>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</span></p>
                             <b>Total: {el.total}</b>
 
                         </div>

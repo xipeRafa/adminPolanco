@@ -16,6 +16,9 @@ import Inventario from './pages/inventario/Inventario'
 import OrdersHillo from './pages/OrdersHillo'
 import OrdersSanCarlos from './pages/OrdersSanCarlos'
 import ProductosBajos from './pages/ProductosBajos';
+import ProductosBajosSanCarlos from './pages/productosBajosSanCarlos';
+
+
 
 import Navbar from './components/Navbar';
 
@@ -91,6 +94,8 @@ export default function App() {
         <Route path="/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} />} />
 
         <Route path="/productosBajos" element={<ProductosBajos arr={arr} />} />
+        <Route path="/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} />} />
+
 
         <Route path="/entregas" element={<Entregados arrOrders={arrOrders} />} />
 

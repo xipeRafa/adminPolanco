@@ -4,6 +4,8 @@
 
 
 export default function ProductoBajos({ arr }) {
+
+    console.log(arr)
    
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
@@ -13,14 +15,14 @@ export default function ProductoBajos({ arr }) {
 
     return (
         <>
-            <h3>PRODUCTOS CON STOCK BAJO</h3>
+            <h3>PRODUCTOS CON STOCK BAJO HERMOSILLO <span className='number'> { arr.filter((el) => el.stockHermosillo <= 2).length}</span></h3>
             {arr.filter((el) => el.stockHermosillo <= 2).map((el, i) => (
                 <div key={i} className="item">
                     <hr />
 
                     {/*<div className='img'>
-                <img src={el.imgUrl} alt='img' />
-            </div>*/}
+                            <img src={el.imgUrl} alt='img' />
+                    </div>*/}
 
                     <div className="texto">
                         <h3>Nombre: { el.name}</h3>

@@ -75,4 +75,22 @@ h3{
 }
 
 
+.bg-danger{
+  background-color: red;
+  color:white;
+  padding: 4px;
+}
+
+.bg-blue{
+   background-color: skyblue;
+  color:white;
+  padding: 4px;
+}
+
+.number{
+  background-color: red;
+  color:white;
+  padding: 4px;
+}
+
 

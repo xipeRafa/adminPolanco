@@ -1,7 +1,7 @@
 export default function OrdersHillo({ arrOrders }) {
     return (
         <>
-        <h3>PRODUCTOS YA ENTREGADOS</h3>
+        <h3>PRODUCTOS YA ENTREGADOS <span className='number'> { arrOrders.filter((el) => el.takenByCustomer === true).length}</span></h3>
             {arrOrders
                 .filter((el) => el.takenByCustomer === true)
                 .map((el, i) => (
@@ -29,7 +29,8 @@ export default function OrdersHillo({ arrOrders }) {
                                     day: "numeric",
                                 })}
                             </p>
-                            <b>Total: {el.total}</b>
+                            <p>Total: {el.total}</p>
+                            <b>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</b>
                         </div>
 
                            <hr />

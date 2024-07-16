@@ -6,9 +6,14 @@
 
 
 export default function OrdersSanCarlos({ arrOrders }) {
+
+        const pendientes = arrOrders.filter((el) => el.city === "san carlos").filter((el) => el.takenByCustomer === false ).length
+        const entregados = arrOrders.filter((el) => el.city === "san carlos").filter((el) => el.takenByCustomer === true ).length
+
+
     return (
         <>
-            <h3>ORDENES DE SAN CARLOS</h3>
+            <h3>ORDENES DE SAN CARLOS <span className='number'> pendientes: {pendientes}</span> Entregados: {entregados}</h3>
             {arrOrders.filter((el) => el.city === "san carlos")
                 .map((el, i) => (
                     <div key={i} className="item">
@@ -35,7 +40,7 @@ export default function OrdersSanCarlos({ arrOrders }) {
                                     day: "numeric",
                                 })}
                             </p>
-
+                            <p><span className={!el.takenByCustomer ? 'bg-danger' : 'bg-blue'}>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</span></p>
                             <b>Total: {el.total}</b>
 
                         </div>
