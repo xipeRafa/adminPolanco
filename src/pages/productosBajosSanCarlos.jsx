@@ -38,7 +38,6 @@ export default function ProductosBajosSanCarlos({ arr }) {
                     <div className="texto">
                         <p>Marca: {el.marca}</p>
                         <p>Para: {el.para}</p>
-                        <p>Stock Hermosillo: {el.stockHermosillo}</p>
 
                         <p>Stock San Carlos: {el.stockSanCarlos}</p>
                         <p>Talla: {el.talla}</p>

@@ -29,8 +29,9 @@ export default function OrdersHillo({ arrOrders }) {
                                     day: "numeric",
                                 })}
                             </p>
-                            <p>Total: {el.total}</p>
-                            <b>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</b>
+
+                            <b>Total: {el.total}</b>
+                            <p><span className={!el.takenByCustomer ? 'bg-danger' : 'bg-blue'}>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</span></p>
                         </div>
 
                            <hr />

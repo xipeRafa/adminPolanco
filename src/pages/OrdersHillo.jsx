@@ -1,7 +1,7 @@
 
  
 export default function OrdersHillo({ arrOrders }) {
-
+console.log(arrOrders)
     const pendientes = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === false ).length
     const entregados = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === true ).length
 

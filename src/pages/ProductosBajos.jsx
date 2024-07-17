@@ -5,7 +5,6 @@
 
 export default function ProductoBajos({ arr }) {
 
-    console.log(arr)
    
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
@@ -40,7 +39,6 @@ export default function ProductoBajos({ arr }) {
                         <p>Para: {el.para}</p>
                         <p>Stock Hermosillo: {el.stockHermosillo}</p>
 
-                        <p>Stock San Carlos: {el.stockSanCarlos}</p>
                         <p>Talla: {el.talla}</p>
                         <b>Precio: $ { el.price}</b>
                     </div>

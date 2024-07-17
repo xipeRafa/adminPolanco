@@ -4,6 +4,8 @@
 
 export default function Inventario({ arr }) {
 
+
+
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
     const milisegundosComoFecha = (milisegundos) => {
@@ -24,6 +26,7 @@ export default function Inventario({ arr }) {
                     <div className="texto">
                         <h3>Nombre: {el.name}</h3>
                         <b>ID: {el.id}</b>
+                        <p>Sucursal: {el.sucursal}</p>
                         <p>Categoria: {el.category}</p>
                         <p>Color: {el.color}</p>
                         <p>Tela: {el.tela}</p>
@@ -37,10 +40,10 @@ export default function Inventario({ arr }) {
                         <p>Marca: {el.marca}</p>
                         <p>Para: {el.para}</p>
 
-                        <p>Stock Hermosillo: {el.stockHermosillo}</p>
-                        <p>Stock San Carlos: {el.stockSanCarlos}</p>
+                        <p>Stock: {el?.stockSanCarlos}{el?.stockHermosillo}</p>
 
                         <p>Talla: {el.talla}</p>
+                       
                         <b>Precio: $ { el.price}</b>
                     </div>
 
