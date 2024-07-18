@@ -1,8 +1,8 @@
 
+import { useEffect } from 'react';
 
 
-
-export default function Inventario({ arr }) {
+export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
@@ -11,6 +11,11 @@ export default function Inventario({ arr }) {
     const milisegundosComoFecha = (milisegundos) => {
           return formateador.format(new Date(milisegundos));
     }; 
+
+
+    useEffect(()=>{
+        setGetArr(!getArr)
+    },[])
 
     return (
         <>

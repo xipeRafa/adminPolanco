@@ -3,7 +3,7 @@
 
 
 
-export default function ProductoBajos({ arr }) {
+export default function ProductoBajos({ arr, setGetArr, getArr }) {
 
    
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });

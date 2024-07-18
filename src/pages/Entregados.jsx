@@ -13,7 +13,7 @@ export default function OrdersHillo({ arrOrders }) {
                             <h3>Comprador: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                  <b>Producto ID: {el.id} <br /><br /></b>
+                                  <b key={i}>Producto ID: {el.id} <br /><br /></b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>

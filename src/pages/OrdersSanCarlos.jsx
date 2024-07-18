@@ -1,15 +1,21 @@
 
 
+import { useEffect } from 'react';
 
 
 
 
-
-export default function OrdersSanCarlos({ arrOrders }) {
+export default function OrdersSanCarlos({ arrOrders, setGetArrOrders, getArrOrders }) {
 
         const pendientes = arrOrders.filter((el) => el.city === "san carlos").filter((el) => el.takenByCustomer === false ).length
         const entregados = arrOrders.filter((el) => el.city === "san carlos").filter((el) => el.takenByCustomer === true ).length
 
+
+     useEffect(()=>{
+        setGetArrOrders(!getArrOrders)
+    },[])
+
+    
 
     return (
         <>
@@ -24,7 +30,7 @@ export default function OrdersSanCarlos({ arrOrders }) {
                             <h3>Comprador: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                <b>Producto ID: {el.id} <br /><br /></b>
+                                <b>Producto ID: {el.id} Cantidad: { el.quantity}<br /><br /></b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>

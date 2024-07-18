@@ -27,13 +27,13 @@ import Navbar from './components/Navbar';
 export default function App() {
 
   const location = useLocation();
-  console.log(location.pathname);
 
 
 
 
 
       const [arr, setArr] = useState([])
+      const [getArr, setGetArr] = useState(false)
 
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function App() {
              console.error(err)
         })
 
-    }, [])
+    }, [getArr])
 
 
 
@@ -57,7 +57,7 @@ export default function App() {
 
 
       const [arrOrders, setArrOrders] = useState([])
-
+      const [getArrOrders, setGetArrOrders] = useState(false)
 
     useEffect(() => {
 
@@ -69,7 +69,7 @@ export default function App() {
              console.error(err)
         })
 
-    }, [])
+    }, [getArrOrders])
 
 
 
@@ -87,14 +87,14 @@ export default function App() {
       <Routes>
         <Route path="/adminPolanco" exact element={<Inicio />} />
 
-        <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} />} />
+        <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
 
 
-        <Route path="/adminPolanco/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} />} />
-        <Route path="/adminPolanco/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} />} />
+        <Route path="/adminPolanco/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} setGetArrOrders={setGetArrOrders} getArrOrders={getArrOrders}/>} />
+        <Route path="/adminPolanco/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} setGetArrOrders={setGetArrOrders} getArrOrders={getArrOrders}/>} />
 
-        <Route path="/adminPolanco/productosBajos" element={<ProductosBajos arr={arr} />} />
-        <Route path="/adminPolanco/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} />} />
+        <Route path="/adminPolanco/productosBajos" element={<ProductosBajos arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
+        <Route path="/adminPolanco/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
 
 
         <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} />} />

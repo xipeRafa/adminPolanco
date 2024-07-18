@@ -1,9 +1,18 @@
 
- 
-export default function OrdersHillo({ arrOrders }) {
-console.log(arrOrders)
+ import { useEffect } from 'react';
+
+
+
+export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders }) {
+
     const pendientes = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === false ).length
     const entregados = arrOrders.filter((el) => el.city === "hermosillo").filter((el) => el.takenByCustomer === true ).length
+
+
+
+    useEffect(()=>{
+        setGetArrOrders(!getArrOrders)
+    },[])
 
 
     return (
@@ -12,7 +21,7 @@ console.log(arrOrders)
             {arrOrders.filter((el) => el.city === "hermosillo")
                 .map((el, i) => (
 
-                    <div key={i} className="item">
+                    <div key={i+'^&*'} className="item">
 
                         <hr />
 
@@ -20,7 +29,7 @@ console.log(arrOrders)
                             <h3>Comprador: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                <b>Producto ID: {el.id} <br /><br /></b>
+                                <b key={i+'^&3'}>Producto ID: {el.id} Cantidad: { el.quantity}<br /><br /></b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>

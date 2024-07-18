@@ -1,17 +1,21 @@
 
+import { useEffect } from 'react';
 
 
 
+export default function ProductosBajosSanCarlos({ arr, setGetArr, getArr }) {
 
-export default function ProductosBajosSanCarlos({ arr }) {
 
-    console.log(arr)
    
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
     const milisegundosComoFecha = (milisegundos) => {
           return formateador.format(new Date(milisegundos));
     }; 
+
+    useEffect(()=>{
+        setGetArr(!getArr)
+    },[])
 
     return (
         <>
