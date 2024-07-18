@@ -32,7 +32,6 @@ export default function Inventario({ arr }) {
                         <p>Tela: {el.tela}</p>
 
                         <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
-                        <p>Correo: {el.email}</p>
                         
                     </div>
 
