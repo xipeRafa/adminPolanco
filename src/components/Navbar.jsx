@@ -35,14 +35,14 @@ export default function Navbar() {
     <div className={isActive ? "menu " : "menu display"} onClick={InWidth}>
     
 
-        <NavLink to="/"             > Inicio      </NavLink>
-        <NavLink to="/inventario"   > Inventario </NavLink>
-        <NavLink to="/ordersHillo"  > Ordenes Hermosillo</NavLink>
+        <NavLink to="/adminPolanco"             > Inicio      </NavLink>
+        <NavLink to="/adminPolanco/inventario"   > Inventario </NavLink>
+        <NavLink to="/adminPolanco/ordersHillo"  > Ordenes Hermosillo</NavLink>
 
-        <NavLink to="/ordersSanCarlos"> Ordenes San Carlos</NavLink>
-        <NavLink to="/productosBajos"   > Stock Bajo Hillo</NavLink>
-        <NavLink to="/productosBajosSanCarlos"   > Stock Bajo SC</NavLink>
-        <NavLink to="/entregas"> Entregas</NavLink>
+        <NavLink to="/adminPolanco/ordersSanCarlos"> Ordenes San Carlos</NavLink>
+        <NavLink to="/adminPolanco/productosBajos"   > Stock Bajo Hillo</NavLink>
+        <NavLink to="/adminPolanco/productosBajosSanCarlos"   > Stock Bajo SC</NavLink>
+        <NavLink to="/adminPolanco/entregas"> Entregas</NavLink>
      
     </div>  
 

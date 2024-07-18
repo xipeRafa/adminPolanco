@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import { getDocs, collection } from 'firebase/firestore'
 
@@ -85,22 +85,21 @@ export default function App() {
    
 
       <Routes>
-        <Route path="/" exact element={<Inicio />} />
+        <Route path="/adminPolanco" exact element={<Inicio />} />
 
-        <Route path="/inventario" element={<Inventario arr={arr} />} />
-
-
-        <Route path="/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} />} />
-        <Route path="/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} />} />
-
-        <Route path="/productosBajos" element={<ProductosBajos arr={arr} />} />
-        <Route path="/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} />} />
+        <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} />} />
 
 
-        <Route path="/entregas" element={<Entregados arrOrders={arrOrders} />} />
+        <Route path="/adminPolanco/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} />} />
+        <Route path="/adminPolanco/ordersSanCarlos" element={<OrdersSanCarlos arrOrders={arrOrders} />} />
+
+        <Route path="/adminPolanco/productosBajos" element={<ProductosBajos arr={arr} />} />
+        <Route path="/adminPolanco/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} />} />
 
 
-        <Route path="*" element={<Inicio />} />
+        <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} />} />
+
+        <Route path="*"  element={<Navigate to="/adminPolanco" />}/> 
       </Routes>
     </div>
   );
