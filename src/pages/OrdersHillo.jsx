@@ -29,7 +29,7 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders }
                             <h3>Comprador: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                <b key={i+'^&3'}>Producto ID: {el.id} Cantidad: { el.quantity}<br /><br /></b>
+                                <b key={i+'^&3'}>Producto ID: {el.id} - Cantidad: { el.quantity}<br /><br /></b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>
