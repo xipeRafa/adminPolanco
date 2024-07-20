@@ -19,8 +19,8 @@ export default function ProductosBajosSanCarlos({ arr, setGetArr, getArr }) {
 
     return (
         <>
-            <h3>PRODUCTOS CON STOCK BAJO SAN CARLOS <span className='number'> { arr.filter((el) => el.stockSanCarlos <= 2).length}</span></h3>
-            {arr.filter((el) => el.stockSanCarlos <= 2).map((el, i) => (
+            <h3>PRODUCTOS SIN STOCK SAN CARLOS <span className='number'> { arr.filter((el) => el.stockSanCarlos < 1).length}</span></h3>
+            {arr.filter((el) => el.stockSanCarlos < 1).map((el, i) => (
                 <div key={i} className="item">
                     <hr />
 
