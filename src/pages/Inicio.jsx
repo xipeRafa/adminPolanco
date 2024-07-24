@@ -15,9 +15,9 @@ console.log(arr)
     }; 
 
 
-     let look = localStorage.look?.slice(52, 72)
+     let look = localStorage.look?.slice(40, 62)
 
-
+console.log(look)
     const [valueState, setValueState] = useState(look || '')
 
     const handleSearch = (e) => {
