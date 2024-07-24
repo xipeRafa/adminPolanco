@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 
-import {useParams} from 'react-router-dom';
+
 
 
 export default function Inventario({ arr, setGetArr, getArr }) {
@@ -15,12 +15,10 @@ console.log(arr)
     }; 
 
 
-
-    const {id} = useParams()
-
+     let look = localStorage.look?.slice(52, 72)
 
 
-    const [valueState, setValueState] = useState(id || '')
+    const [valueState, setValueState] = useState(look || '')
 
     const handleSearch = (e) => {
         const { value } = e.target
@@ -31,6 +29,9 @@ console.log(arr)
 
     useEffect(()=>{
         setGetArr(!getArr)
+        setTimeout(()=>{
+            localStorage.removeItem('look')
+        },4000)
     },[])
 
 
