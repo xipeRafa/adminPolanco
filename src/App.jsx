@@ -106,7 +106,7 @@ export default function App() {
 
         <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} />} />
 
-        <Route path="*"  element={<Navigate to={`/adminPolanco/inventario/${id}`} />}/> 
+        <Route path="*"  element={<Navigate to={`/adminPolanco/inventario/${id || ''}`} />}/> 
       </Routes>
     </div>
   );
