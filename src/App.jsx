@@ -52,6 +52,12 @@ export default function App() {
 
 
 
+  // const itemCollection = query(
+  //   collection(firestoreDB, 'orders'),
+  //   where('takenByCustomer', '==', toggleOrders),
+  //   where("city", "==", "hermosillo")
+  // );
+
 
 
 
@@ -88,6 +94,7 @@ export default function App() {
         <Route path="/adminPolanco" exact element={<Inicio />} />
 
         <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
+         <Route path="/adminPolanco/inventario/:id" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
 
 
         <Route path="/adminPolanco/ordersHillo" element={<OrdersHillo arrOrders={arrOrders} setGetArrOrders={setGetArrOrders} getArrOrders={getArrOrders}/>} />
