@@ -15,7 +15,7 @@ console.log(arr)
     }; 
 
 
-     let look = localStorage.look?.slice(40, 62)
+     let look = localStorage.look?.slice(41, 61)
 
 console.log(look)
     const [valueState, setValueState] = useState(look || '')
@@ -31,7 +31,7 @@ console.log(look)
         setGetArr(!getArr)
         setTimeout(()=>{
             localStorage.removeItem('look')
-        },4000)
+        },14000)
     },[])
 
 
