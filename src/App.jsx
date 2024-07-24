@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate} from 'react-router-dom';
 
 import { getDocs, collection } from 'firebase/firestore'
 
@@ -28,8 +28,8 @@ export default function App() {
 
   const location = useLocation();
 
-  const {id} = useParams()
 
+  console.log(location.href)
 
 
       const [arr, setArr] = useState([])
@@ -106,7 +106,7 @@ export default function App() {
 
         <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} />} />
 
-        <Route path="*"  element={<Navigate to={`/adminPolanco/inventario/${id || ' '}`} />}/> 
+        <Route path="*"  element={<Navigate to='/adminPolanco' />}/> 
       </Routes>
     </div>
   );
