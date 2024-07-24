@@ -15,10 +15,8 @@ console.log(arr)
     }; 
 
 
-     let look = localStorage.look?.slice(52, 72)
 
-
-    const [valueState, setValueState] = useState(look || '')
+    const [valueState, setValueState] = useState('')
 
     const handleSearch = (e) => {
         const { value } = e.target
@@ -29,9 +27,6 @@ console.log(arr)
 
     useEffect(()=>{
         setGetArr(!getArr)
-        setTimeout(()=>{
-            localStorage.removeItem('look')
-        },4000)
     },[])
 
 

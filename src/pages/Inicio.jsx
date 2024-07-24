@@ -31,7 +31,7 @@ console.log(arr)
         setGetArr(!getArr)
         setTimeout(()=>{
             localStorage.removeItem('look')
-        },4000)
+        },14000)
     },[])
 
 
