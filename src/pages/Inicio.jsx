@@ -17,7 +17,7 @@ console.log(arr)
 
      let look = localStorage.look?.slice(41, 61)
 
-console.log(look)
+
     const [valueState, setValueState] = useState(look || '')
 
     const handleSearch = (e) => {
@@ -31,7 +31,7 @@ console.log(look)
         setGetArr(!getArr)
         setTimeout(()=>{
             localStorage.removeItem('look')
-        },14000)
+        },4000)
     },[])
 
 
@@ -47,7 +47,7 @@ console.log(look)
     return (
         <>
 
-            <input type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
+            <input style={{display:'none'}} type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
 
