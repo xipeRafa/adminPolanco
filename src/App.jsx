@@ -91,7 +91,7 @@ export default function App() {
    
 
       <Routes>
-        <Route path="/adminPolanco" exact element={<Inicio />} />
+        <Route path="/adminPolanco" exact element={<Inicio arr={arr} setGetArr={setGetArr} getArr={getArr} />} />
 
         <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
          <Route path="/adminPolanco/inventario/:id" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
