@@ -46,13 +46,13 @@ console.log(arr)
     return (
         <>
 
-            <input type='search' className='searchInput' placeholder='buscar' onChange={handleSearch} />
+            <input type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
 
 
             {arr.map((el, i) => (
-                <div key={i} className="item">
+                <div key={i} className="item" onClick={()=>setValueState(el.id)}>
                     <hr />
 
                     {valueState.length > 3 &&
