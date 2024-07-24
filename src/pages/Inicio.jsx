@@ -35,10 +35,10 @@ console.log(arr)
     },[])
 
 
-      if(valueState.length > 3){
+      if(valueState.length > 3 ){
         arr = arr.filter(el => el.id == valueState)
       }else{
-        arr = arr
+        arr = []
       }      
 
 
@@ -49,7 +49,7 @@ console.log(arr)
 
             <input style={{display:'none'}} type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
-            <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
+            <h3> QR SCANNER</h3>
 
 
             {arr.map((el, i) => (
