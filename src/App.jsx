@@ -46,7 +46,7 @@ export default function App() {
              console.error(err)
         })
 
-    }, [getArr])
+    }, [getArr])  
 
 
 
@@ -112,7 +112,9 @@ export default function App() {
         <Route path="/adminPolanco/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
 
 
-        <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} />} />
+        <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} setGetArrOrders={setGetArrOrders} getArrOrders={getArrOrders}
+             arr={arr} setGetArr={setGetArr} getArr={getArr}
+        />} />
 
         <Route path="*"  element={<Navigate to='/adminPolanco' />}/> 
       </Routes>

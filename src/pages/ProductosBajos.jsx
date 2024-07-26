@@ -1,5 +1,5 @@
 
-
+import { useEffect } from 'react';
 
 
 
@@ -11,6 +11,11 @@ export default function ProductoBajos({ arr, setGetArr, getArr }) {
     const milisegundosComoFecha = (milisegundos) => {
           return formateador.format(new Date(milisegundos));
     }; 
+
+
+     useEffect(()=>{
+        setGetArr(!getArr)
+    },[])
 
     return (
         <>

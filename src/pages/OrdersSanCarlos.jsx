@@ -27,16 +27,15 @@ export default function OrdersSanCarlos({ arrOrders, setGetArrOrders, getArrOrde
 
                         <div className="texto">
 
-                            <h3>Comprador: {el.buyer.name}</h3>
+                            <h3>Comprador de Internet: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                <b>Producto ID: {el.id} - Cantidad: { el.quantity}<br /><br /></b>
+                                <b>Producto ID: {el.id} - Cantidad: { el.quantity}<br /></b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>
                             <p>Celular: {el.buyer.phone}</p>
                             <p>Ciudad: {el.city}</p>
-                            <p>Clave de Compra: {el.id}</p>
 
                             <p>
                                 Fecha:{" "}
