@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 
 
-export default function Inicio({ arr, setGetArr, getArr }) {
+export default function Inicio({ arr, setGetArr, getArr, UpdateByIdInventario }) {
 
 console.log(arr)
 
@@ -39,7 +39,24 @@ console.log(arr)
         arr = arr.filter(el => el.id == valueState)
       }else{
         arr = []
-      }      
+      }    
+
+
+      const handleToggle =(id, el)=>{
+
+            xel.takenByCustomer = true
+
+            if(el?.stockHermosillo===undefined){
+                el.stockSanCarlos = el?.stockSanCarlos - 1
+                UpdateByIdInventario(el.id, el)
+            }else{
+                el.stockHermosillo = el?.stockHermosillo - 1
+                UpdateByIdInventario(el.id, el)
+            }
+
+             setGetArr(!getArr)
+
+      }  
 
 
 
@@ -47,7 +64,7 @@ console.log(arr)
     return (
         <>
 
-            <input style={{display:'none'}} type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
+            <input  type='search' style={{display:'none'}} className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
             <h3> QR SCANNER</h3>
 
@@ -63,20 +80,14 @@ console.log(arr)
 
                     <div className="texto">
                         <h3>Nombre: {el.name}</h3>
-                        <b>ID: {el.id}</b>
                         <p>Sucursal: {el.sucursal}</p>
                         <p>Categoria: {el.category}</p>
-                        <p>Color: {el.color}</p>
-                        <p>Tela: {el.tela}</p>
 
-                        <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
+                        {/* <p>Fecha: {milisegundosComoFecha(el.duration)}</p>*/}
                         
                     </div>
 
                     <div className="texto">
-                        <p>Marca: {el.marca}</p>
-                        <p>Para: {el.para}</p>
-
                         <p>Stock: {el?.stockSanCarlos}{el?.stockHermosillo}</p>
 
                         <p>Talla: {el.talla}</p>
@@ -87,6 +98,11 @@ console.log(arr)
                     {/*<div className="texto">
                         <p>Descripcion: {el.description}</p>
                     </div>*/}
+
+<br />
+                        <button style={{backgroundColor:'yellow', }} onClick={()=>handleToggle(el.id, el)}> 
+                            Marcar como Pagada
+                        </button>
                     <hr />
                 </div>
             ))}

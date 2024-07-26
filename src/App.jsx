@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate} from 'react-router-dom';
 
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, updateDoc, doc } from 'firebase/firestore'
 
 
 
@@ -51,17 +51,6 @@ export default function App() {
 
 
 
-
-  // const itemCollection = query(
-  //   collection(firestoreDB, 'orders'),
-  //   where('takenByCustomer', '==', toggleOrders),
-  //   where("city", "==", "hermosillo")
-  // );
-
-
-
-
-
       const [arrOrders, setArrOrders] = useState([])
       const [getArrOrders, setGetArrOrders] = useState(false)
 
@@ -80,6 +69,25 @@ export default function App() {
 
 
 
+
+
+
+    const UpdateByIdInventario = async (id, obj) => {
+
+        const aaDoc = doc(db, 'inventario', id);
+
+        try {
+            await updateDoc(aaDoc, obj);
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
+
+
+
+
   return (
     <div className='containerApp'>
         <br />
@@ -91,7 +99,7 @@ export default function App() {
    
 
       <Routes>
-        <Route path="/adminPolanco" exact element={<Inicio arr={arr} setGetArr={setGetArr} getArr={getArr} />} />
+        <Route path="/adminPolanco" exact element={<Inicio arr={arr} setGetArr={setGetArr} getArr={getArr} UpdateByIdInventario={UpdateByIdInventario}/>} />
 
         <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
          <Route path="/adminPolanco/inventario/:id" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />

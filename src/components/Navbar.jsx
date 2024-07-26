@@ -35,7 +35,7 @@ export default function Navbar() {
     <div className={isActive ? "menu " : "menu display"} onClick={InWidth}>
     
 
-        <NavLink to="/adminPolanco"             > Inicio      </NavLink>
+        <NavLink to="/adminPolanco"             > QR      </NavLink>
         <NavLink to="/adminPolanco/inventario"   > Inventario </NavLink>
         <NavLink to="/adminPolanco/ordersHillo"  > Ordenes Hermosillo</NavLink>
 

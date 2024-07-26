@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 
-
+import './inventario.css'
 
 
 export default function Inventario({ arr, setGetArr, getArr }) {
@@ -31,7 +31,7 @@ console.log(arr)
 
 
       if(valueState.length > 3){
-        arr = arr.filter(el => el.id == valueState)
+        arr = arr.filter(el => el.id == valueState.trim())
       }else{
         arr = arr
       }      
@@ -42,7 +42,7 @@ console.log(arr)
     return (
         <>
 
-            <input type='search' className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
+            <input type='search' style={{width:'180px'}} className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
 
@@ -52,8 +52,8 @@ console.log(arr)
                     <hr />
 
                     {valueState.length > 3 &&
-                    <div className='img'>
-                        <img src={el.imgUrl} alt='img' />
+                    <div >
+                         <img className='imgX' src={el.imgUrl} alt='img' />
                     </div>}
 
                     <div className="texto">
@@ -61,7 +61,6 @@ console.log(arr)
                         <b>ID: {el.id}</b>
                         <p>Sucursal: {el.sucursal}</p>
                         <p>Categoria: {el.category}</p>
-                        <p>Color: {el.color}</p>
                         <p>Tela: {el.tela}</p>
 
                         <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
