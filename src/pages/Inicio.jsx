@@ -122,7 +122,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                         <p>ID: {el.id}</p>
                         <p>Sucursal: {el.sucursal}</p>
 
-                        <p>Inventario: {milisegundosComoFecha(el.duration)}</p>
+                        {/*<p>Inventario: {milisegundosComoFecha(el.duration)}</p>*/}
                     </div>
 
                     <div className="texto">
