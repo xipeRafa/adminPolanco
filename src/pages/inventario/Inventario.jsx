@@ -48,7 +48,7 @@ console.log(arr)
 
 
             {arr.map((el, i) => (
-                <div key={i} className="item" onClick={()=>setValueState(el.id)}>
+                <div key={i} className="item" onDoubleClick={()=>setValueState(el.id)}>
                     <hr />
 
                     {valueState.length > 3 &&
