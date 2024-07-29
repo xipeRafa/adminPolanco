@@ -64,13 +64,22 @@ console.log(arr)
                         <p>Tela: {el.tela}</p>
 
                         <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
+
                         {el?.historiSales?.map((fecha, i) => {
-                        return (
-                            <p key={i} style={{ backgroundColor: "yellow" }}>
-                                Venta {i + 1}.- {milisegundosComoFecha(fecha)}
-                            </p>
-                        );
-                    })}
+                                return (
+                                        <p key={i} style={{ backgroundColor: "yellow" }}>
+                                                Venta {i + 1}.- {milisegundosComoFecha(fecha)}
+                                        </p>
+                                );
+                        })}
+
+                        {el?.notaDeVenta?.map((nota, i) => {
+                                return (
+                                        <p key={i}>
+                                                Nota de Venta {i + 1}: <b>No. {nota}</b>
+                                        </p>
+                                );
+                        })}
                         
                     </div>
 
