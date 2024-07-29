@@ -28,7 +28,7 @@ export default function Navbar() {
       </div>
 
 
-      <p>{isActive ? 'MENU' : '✘'}</p>
+      <p className='menuIcons'>{isActive ? 'MENU' : '✘'}</p>
 
     </div>
 

@@ -92,6 +92,14 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
                         );
                     })}
 
+                     {el?.notaDeVenta?.map((nota, i) => {
+                        return (
+                            <p key={i}>
+                                Nota de Venta {i + 1}: <b>No. {nota}</b>
+                            </p>
+                        );
+                    })}
+
                     <div className="texto">
 
                         <p>Stock: {el?.stockSanCarlos}{el?.stockHermosillo}</p>

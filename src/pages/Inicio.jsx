@@ -44,7 +44,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
         arr = [];
     }
 
-
+    const[noteState, setNoteState]=useState('')
 
 
 
@@ -58,26 +58,43 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
 
     const handleSales = (id, el) => {
+
         el.takenByCustomer = true;
 
+
         if (el.historiSales === undefined) {
-            el.historiSales = [];
-            el.historiSales.push(dueDate);
+
+                el.historiSales = [];
+                el.historiSales.push(dueDate);
+
+                el.notaDeVenta = []
+                el.notaDeVenta.push(noteState)
+
         } else {
-            el.historiSales.push(dueDate);
+
+                el.historiSales.push(dueDate);
+                el.notaDeVenta.push(noteState)
+
         }
 
+
+
+
         if (el?.stockHermosillo === undefined) {
-            el.stockSanCarlos = el?.stockSanCarlos - 1;
-            UpdateByIdInventario(el.id, el);
+
+                el.stockSanCarlos = el?.stockSanCarlos - 1;
+                UpdateByIdInventario(el.id, el);
+
         } else {
-            el.stockHermosillo = el?.stockHermosillo - 1;
-            UpdateByIdInventario(el.id, el);
+
+                el.stockHermosillo = el?.stockHermosillo - 1;
+                UpdateByIdInventario(el.id, el);
         }
 
         setTimeout(() => {
             setGetArr(!getArr);
         }, 500);
+
     };
 
 
@@ -93,7 +110,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
     return (
         <>
             <input
-                style={{display:'none'}}
+                //style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
@@ -143,17 +160,37 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                         );
                     })}
 
+
+                    {el?.notaDeVenta?.map((nota, i) => {
+                        return (
+                            <p key={i}>
+                                Nota de Venta {i + 1}: <b>No. {nota}</b>
+                            </p>
+                        );
+                    })}
+
                     <br />
+
+                    <input className='mb-3' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/>
+
+                    <br />
+
                     <button
                         disabled={el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? true : false}
                         style={{ backgroundColor: "yellow" }}
                         onClick={() => {
-                            if (
-                                window.confirm(`marcar como pagado? ${el.name}`)
-                            ) {
-                                handleSales(el.id, el);
+                            if (window.confirm(`Marcar ${el.name} como Pagado?`)) {
+
+                                    if(noteState.length <= 0){
+                                            alert('Falta el Numero Nota de Venta')
+                                            return
+                                    }
+
+                                    handleSales(el.id, el);
+
+                                }
                             }
-                        }}
+                        }
                     >
                       {el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} 
                     </button>
