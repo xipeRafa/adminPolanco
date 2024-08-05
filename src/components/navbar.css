@@ -5,6 +5,12 @@
     margin-bottom: 50px;
 }
 
+@media (max-width: 900px) {
+    .navBar{
+        margin-bottom: -80px;
+    }
+}
+
 
 
 /* azul */
