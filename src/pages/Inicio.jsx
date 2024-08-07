@@ -110,7 +110,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
     return (
         <>
             <input
-                style={{display:'none'}}
+                // style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
@@ -138,6 +138,10 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                         <h3>Nombre: {el.name}</h3>
                         <p>ID: {el.id}</p>
                         <p>Sucursal: {el.sucursal}</p>
+                        <span>Tallas: </span>
+                        {el.talla.map((el, i)=>(
+                            <span> {el},</span>
+                        ))}
 
                         {/*<p>Inventario: {milisegundosComoFecha(el.duration)}</p>*/}
                     </div>

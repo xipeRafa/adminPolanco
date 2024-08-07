@@ -89,9 +89,13 @@ console.log(arr)
 
                         <p>Stock: {el?.stockSanCarlos}{el?.stockHermosillo}</p>
 
-                        <p>Talla: {el.talla}</p>
+                        <span>Talla: </span>
+
+                        {el?.talla.map((el,i)=>(
+                          <span> {el},</span>
+                        ))}
                        
-                        <b>Precio: $ { el.price}</b>
+                        <p><b>Precio: $ { el.price}</b></p>
                     </div>
 
                     {/*<div className="texto">
