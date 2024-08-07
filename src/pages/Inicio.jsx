@@ -110,7 +110,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
     return (
         <>
             <input
-                // style={{display:'none'}}
+                style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
