@@ -6,7 +6,26 @@ import './inventario.css'
 
 export default function Inventario({ arr, setGetArr, getArr }) {
 
-console.log(arr)
+let a = arr.filter(el => el.sucursal === 'Hermosillo')
+let b = arr.filter(el => el.sucursal === 'San Carlos')
+
+
+
+let sum = []
+
+a.forEach((el, i)=>{
+    sum.push(el.stockHermosillo * el.price)
+})
+
+
+let sumc = []
+
+b.forEach((el, i)=>{
+    sumc.push(el.stockSanCarlos * el.price)
+})
+
+
+// .reduce((acumulador, actual) => acumulador + actual.price, 0)
 
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
@@ -45,6 +64,8 @@ console.log(arr)
             <input type='search' style={{width:'180px'}} className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
+            <h4>{sum.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
+            <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
             {arr.map((el, i) => (
