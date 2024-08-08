@@ -42,7 +42,9 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
                             <h3>Comprador de Internet: {el.buyer.name}</h3>
 
                             {el.items.map((el, i) => (
-                                  <b key={i}>Producto ID: {el.id} - Cantidad: { el.quantity}<br /></b>
+                                    <b key={i}>
+                                        Producto ID: {el.id} - Cantidad: { el.quantity}<br />
+                                    </b>
                             ))}
 
                             <p>Correo: {el.buyer.email}</p>
@@ -59,6 +61,8 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
                                     minute: 'numeric'
                                 })}
                             </p>
+
+
 
                             <b>Total: {el.total}</b>
                             {/*<p><span className={!el.takenByCustomer ? 'bg-danger' : 'bg-blue'}>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</span></p>*/}

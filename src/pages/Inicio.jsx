@@ -57,10 +57,28 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
 
 
+    const[tallaState, setTallaState]=useState()
+
+    const handleTallaState=(e)=>{
+        let talla = e.target.value
+
+        if(e.target.value.length>2){
+            return
+        }
+        setTallaState(talla)
+    }
+
+
+
+
+
     const handleSales = (id, el) => {
 
-        el.takenByCustomer = true;
+        let newTallasValue = el.talla.filter(el => el !== tallaState)
 
+        el.takenByCustomer = true;
+        el.tallaComprada = tallaState
+        el.talla = newTallasValue
 
         if (el.historiSales === undefined) {
 
@@ -98,6 +116,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
     };
 
 
+
+   
 
 
 
@@ -140,7 +160,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                         <p>Sucursal: {el.sucursal}</p>
                         <span>Tallas: </span>
                         {el.talla.map((el, i)=>(
-                            <span> {el},</span>
+                            <span key={i+'ta'}> {el},</span>
                         ))}
 
                         {/*<p>Inventario: {milisegundosComoFecha(el.duration)}</p>*/}
@@ -175,7 +195,10 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
                     <br />
 
+                    <input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/>
+
                     <input className='mb-3' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/>
+
 
                     <br />
 
@@ -183,20 +206,24 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                         disabled={el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? true : false}
                         style={{ backgroundColor: "yellow" }}
                         onClick={() => {
-                            if (window.confirm(`Marcar ${el.name} como Pagado?`)) {
 
-                                    if(noteState.length <= 0){
-                                            alert('Falta el Numero Nota de Venta')
-                                            return
-                                    }
-
-                                    handleSales(el.id, el);
-
-                                }
+                            if(tallaState.length <= 0){
+                                alert('Falta la Talla del Producto')
+                                return
                             }
-                        }
+
+                            if(noteState.length <= 0){
+                                alert('Falta el Numero Nota de Venta')
+                                return
+                            }
+
+                            if (window.confirm(`Marcar ${el.name} como Pagado?`)) {
+                                handleSales(el.id, el);
+                            }
+
+                        }}
                     >
-                      {el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} 
+                        {el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? "Producto Agotado" : 'Marcar como Pagado'} 
                     </button>
                     <hr />
                 </div>
