@@ -131,14 +131,14 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
     return (
         <>
-            <input
-                //style={{display:'none'}}
+            {/*<input
+                style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
                 placeholder="buscar"
                 onChange={handleSearch}
-            />
+            />*/}
 
             <h3> QR SCANNER</h3>
 
