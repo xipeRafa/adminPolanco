@@ -92,7 +92,7 @@ console.log(arr)
                         <span>Talla: </span>
 
                         {el?.talla.map((el,i)=>(
-                          <span> {el},</span>
+                          <span key={i+'95'}> {el},</span>
                         ))}
                        
                         <p><b>Precio: $ { el.price}</b></p>
