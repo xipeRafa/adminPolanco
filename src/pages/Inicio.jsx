@@ -57,7 +57,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
 
 
-    const[tallaState, setTallaState]=useState()
+    const[tallaState, setTallaState]=useState('')
 
     const handleTallaState=(e)=>{
         let talla = e.target.value
@@ -111,6 +111,8 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
         setTimeout(() => {
             setGetArr(!getArr);
+            setTallaState('')
+            setNoteState('')
         }, 500);
 
     };
@@ -130,7 +132,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
     return (
         <>
             <input
-                style={{display:'none'}}
+                //style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
@@ -195,9 +197,9 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
                     <br />
 
-                    <input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/>
+                    <input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/><br />
 
-                    <input className='mb-3' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/>
+                    <input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/>
 
 
                     <br />
