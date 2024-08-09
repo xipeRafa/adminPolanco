@@ -27,8 +27,8 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
 
     return (
         <>
-        <h3>PRODUCTOS YA ENTREGADOS <span className='number'> { arrOrders.filter((el) => el.takenByCustomer === true).length}</span></h3>
-
+        <h3>PRODUCTOS YA ENTREGADOS OnLine: <span className='number'> { arrOrders.filter((el) => el.takenByCustomer === true).length}</span></h3>
+        <h3>PRODUCTOS YA ENTREGADOS <span className='number'> { arr.filter((el) => el.takenByCustomer === true).length}</span></h3>
 
 
             {arrOrders
