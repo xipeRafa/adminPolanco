@@ -564,3 +564,15 @@ h3{
 .ps-5 {
   padding-left: 3rem !important;
 }
+
+
+.datePicker{
+  width: 100%;
+  text-align: center;
+}
+
+.pickers{
+  width: 280px;
+  text-align: center;
+  padding: 6px;
+}
