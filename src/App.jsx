@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate} from 'react-router-dom';
 
-import { getDocs, collection, updateDoc, doc } from 'firebase/firestore'
+import { getDocs, collection, updateDoc, doc,  addDoc, } from 'firebase/firestore'
 
 
 
@@ -72,6 +72,15 @@ export default function App() {
 
 
 
+    
+
+     
+
+
+
+
+
+
     const UpdateByIdInventario = async (id, obj) => {
 
         const aaDoc = doc(db, 'inventario', id);
@@ -84,6 +93,17 @@ export default function App() {
 
     }
 
+    const postVentas = async (postBody) => {
+
+        const postCollection = collection(db, 'ventas');
+
+        try {
+            await addDoc(postCollection, postBody);
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
 
 
 
@@ -96,10 +116,13 @@ export default function App() {
       </div>
       <Navbar />
 
+
    
 
       <Routes>
-        <Route path="/adminPolanco" exact element={<Inicio arr={arr} setGetArr={setGetArr} getArr={getArr} UpdateByIdInventario={UpdateByIdInventario}/>} />
+        <Route path="/adminPolanco" exact element={
+                <Inicio arr={arr} setGetArr={setGetArr} getArr={getArr} UpdateByIdInventario={UpdateByIdInventario} postVentas={postVentas} /> 
+        } />
 
         <Route path="/adminPolanco/inventario" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
          <Route path="/adminPolanco/inventario/:id" element={<Inventario arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />

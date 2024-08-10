@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 
 
-export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
+export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, postVentas}) {
 
+ 
 
     const formateador = new Intl.DateTimeFormat("es-MX", {
         dateStyle: "long",
@@ -77,7 +78,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
         let newTallasValue = el.talla.filter(el => el !== tallaState)
 
         el.takenByCustomer = true;
-        el.tallaComprada = tallaState
+        //el.tallaComprada = tallaState
         el.talla = newTallasValue
 
         if (el.historiSales === undefined) {
@@ -109,6 +110,17 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
                 UpdateByIdInventario(el.id, el);
         }
 
+        let ventas = {
+            id,
+            lastSale : dueDate,
+            tallaComprada : tallaState,
+            sucursal : el.sucursal,
+            price : el.price,
+        }
+
+
+        postVentas(ventas)
+
         setTimeout(() => {
             setGetArr(!getArr);
             setTallaState('')
@@ -131,14 +143,14 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario}) {
 
     return (
         <>
-            {/*<input
+            <input
                 //style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
                 placeholder="buscar"
                 onChange={handleSearch}
-            />*/}
+            />
 
             <h3> QR SCANNER</h3>
 
