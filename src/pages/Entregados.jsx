@@ -81,7 +81,6 @@ arrOrders.map((el, i)=>{
 
 let b = a.flat().filter(el => el.historiSales[0] > hoy && el.historiSales[0] < hoy+86400000)
 
-console.log(b)
 
     return (
         <>
@@ -99,7 +98,7 @@ console.log(b)
       {/*  <h3>ENTREGADOS OnLine: <span className='number'> { arrOrders.filter((el) => el.takenByCustomer === true).length}</span></h3>
         <h3>PRODUCTOS YA ENTREGADOS <span className='number'> { arr.filter((el) => el.takenByCustomer === true).length}</span></h3>*/}
 
-          <h2>{b.length <= 0 ? 'No Hubo Ventas este Día' : `Cantidad de Productos Vendidos: ${ b.length} `}</h2>
+          <h2>{b.length <= 0 ? 'Selecciona un Dia en el Calendario' : `Cantidad de Productos Vendidos: ${ b.length} `}</h2>
 
 
 
