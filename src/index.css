@@ -153,15 +153,29 @@ h3{
 }
 
 .bg-blue{
-   background-color: skyblue;
+  background-color: skyblue;
   color:white;
   padding: 4px;
+}
+
+.bg-dark{
+  
+ 
+  padding: 6px;
+  display: inline;
 }
 
 .number{
   background-color: red;
   color:white;
   padding: 4px;
+}
+
+.total{
+  background-color: #222222;
+  font-size: 22px;
+  padding: 10px;
+   color: white;
 }
 
 
@@ -575,4 +589,9 @@ h3{
   width: 280px;
   text-align: center;
   padding: 6px;
+}
+
+
+.d-none{
+  display: none;
 }

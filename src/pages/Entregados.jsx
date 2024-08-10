@@ -8,21 +8,19 @@ import es from 'date-fns/locale/es';
 registerLocale("es", es);
 
 
-export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, arr, setGetArr, getArr}) {
+export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) {
 
- 
 
     useEffect(()=>{
-        setGetArrOrders(!getArrOrders)
-        setGetArr(!getArr)
+        setGetArrVentas(!getArrVentas)
     },[])
 
 
 
 
     const formateador = new Intl.DateTimeFormat("es-MX", {
-        dateStyle: "long",
-        timeStyle: "short",
+            dateStyle: "long",
+            timeStyle: "short",
     });
 
     const milisegundosComoFecha = (milisegundos) => {
@@ -34,16 +32,12 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
 
 
 
-
-
-
-
     ////==-=-=-=-=-=-=- datePicker
 
 
-        const [ hoy, setHoy ]=useState() // miliseconds 
+        const [hoy, setHoy] = useState() // miliseconds 
 
-        const [fecha, setFecha]=useState() //Fri Feb 03 2023 00:00:00 GMT-0700 (hora estándar del Pacífico de México)
+        const [fecha, setFecha] = useState() //Fri Feb 03 2023 00:00:00 GMT-0700 (hora estándar del Pacífico de México)
 
         const handlerDuration = e => setHoy(e.target.value)
 
@@ -74,138 +68,79 @@ export default function OrdersHillo({ arrOrders, setGetArrOrders, getArrOrders, 
         //_+_+_++_+_+_+_++_+_+_+_+_+_+_+_+_////_+_+_++_+_+_+_++_+_+_+_+_+_+_+_+_////_+_+_++_+_+_+_++_+_+_+_+_+_+_+_+_////_+_+_++_+_+_+_++_+_+_+_+_+_+_+_+_//
 
 
-let a = []
-arrOrders.map((el, i)=>{
-    a.push(el.items)
-})
+// let a = []
+// arrOrders.map((el, i)=>{
+//     a.push(el.items)
+// })
 
-let b = a.flat().filter(el => el.historiSales[0] > hoy && el.historiSales[0] < hoy+86400000)
+        let arrVentasFiltered = arrVentas.filter(el => (el.lastSale >= hoy) && (el.lastSale <= hoy+86400000))
+
+        let totalVentas = []
+
+        arrVentasFiltered.map(el=>{
+                totalVentas.push(el.price)
+        })
+
+        let total = totalVentas.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
+
+
+
+
+
+
+
+
+
 
 
     return (
         <>
-         <div className="datePicker">
-              <DatePicker 
-                selected={fecha}
-                onChange={onChangeDatePicker} 
-                locale="es" 
-                className="pickers" 
-                dateFormat="dd 'de' MMMM 'de' yyyy"
-              />
-          </div>
-          
 
-      {/*  <h3>ENTREGADOS OnLine: <span className='number'> { arrOrders.filter((el) => el.takenByCustomer === true).length}</span></h3>
-        <h3>PRODUCTOS YA ENTREGADOS <span className='number'> { arr.filter((el) => el.takenByCustomer === true).length}</span></h3>*/}
-
-          <h2>{b.length <= 0 ? 'Selecciona un Dia en el Calendario' : `Cantidad de Productos Vendidos: ${ b.length} `}</h2>
+            <h4>
+                {
+                    arrVentasFiltered.length <= 0 
+                        ? 'Selecciona un Dia en el Calendario' 
+                        : `Cantidad de Productos Vendidos: ${ arrVentasFiltered.length}`
+                }
+            </h4>
 
 
+            <h4 className={arrVentasFiltered.length <= 0 ? 'd-none' : 'bg-dark'}>
+                    Total en Ventas: $ <span className='total'>{total}</span>
+            </h4>
 
 
-{/*
-            {arrOrders
-                .filter((el) => el.takenByCustomer === true)
-                .map((el, i) => (
-                    <div key={i} className="item">
+            <div className="datePicker">
+                <DatePicker 
+                    selected={fecha}
+                    onChange={onChangeDatePicker} 
+                    locale="es" 
+                    className="pickers" 
+                    dateFormat="dd 'de' MMMM 'de' yyyy"
+                />
+            </div>
+        
 
-                       <hr />
-
-                        <div className="texto">
-                            <h3>Comprador de Internet: {el.buyer.name}</h3>
-
-                            {el.items.map((el, i) => (
-                                    <b key={i}>
-                                        Producto ID: {el.id} - Cantidad: { el.quantity} { 
-                                            el.historiSales.map((el,i)=>{
-
-                                                let date2 = new Date(Number(el)).toLocaleDateString("es-CL", {
-                                                    weekday: "long", // narrow, short
-                                                    year: "numeric", // 2-digit
-                                                    month: "long", // numeric, 2-digit, narrow, long
-                                                    day: "numeric", // 2-digit
-                                                    hour: "numeric",
-                                                    minute: "numeric",
-                                                    second: "numeric"
-                                                })
-
-                                                return <p key={i+'v'}>venta: {i+1} {date2}</p>
-                                            }) 
-                                        }
-                                    </b>
-                            ))}
-
-                            <p>Correo: {el.buyer.email}</p>
-                            <p>Celular: {el.buyer.phone}</p>
-                            <p>Ciudad: {el.city}</p>
-
-                            <p>
-                                Fecha: {' '}
-                                 { new Date(el.date).toLocaleDateString("es-ES", {
-                                    year: "numeric",
-                                    month: "long",
-                                    day: "numeric",
-                                    hour:'numeric',
-                                    minute: 'numeric'
-                                })}
-                            </p>
-
-
-
-                            <b>Total: {el.total}</b>*/}
-                            {/*<p><span className={!el.takenByCustomer ? 'bg-danger' : 'bg-blue'}>Status: {el.takenByCustomer ? 'Entregado' : 'Pendiente'}</span></p>*/}
-               {/*         </div>
-
-                           <hr />
-
-                    </div>
-                ))}*/}
-
-
-                {b.map((el, i) => (
+   
+            {arrVentasFiltered.map((el, i) => (
                 <div key={i} className="item">
                     <hr />
 
                     <div className="texto">
-                    <h3>Sucursal {el.sucursal}</h3>
-                           <b>ID: {el.id}</b>
-                        <p>Producto: {el.name}</p>
-                 
-
-                        {/*<p>Fecha: {milisegundosComoFecha(el.duration)}</p>*/}
-                        
-                    </div>
-
-                    {el?.historiSales?.map((fecha, i) => {
-                        return (
-                            <p key={i} >
-                                Venta {i + 1}.- {milisegundosComoFecha(fecha)}
-                            </p>
-                        );
-                    })}
-
-                     {el?.notaDeVenta?.map((nota, i) => {
-                        return (
-                            <p key={i}>
-                                Nota de Venta {i + 1}: <b>No. {nota}</b>
-                            </p>
-                        );
-                    })}
-
-                    <div className="texto">
-
-                        <p>Stock: {el?.stockSanCarlos}{el?.stockHermosillo}</p>
-
-                       
+                        <h3>Sucursal {el.sucursal}</h3>
+                        <p>Fecha de Venta: {milisegundosComoFecha(el.lastSale)}</p>
+                        <b>ID: {el.pid}</b>
+                        <p>Producto: {el.name}</p>                      
+                        <p>Talla : { el.tallaComprada}</p>
                         <b>Precio: $ { el.price}</b>
                     </div>
 
-                    {/*<div className="texto">
-                        <p>Descripcion: {el.description}</p>
-                    </div>*/}
+
                     <hr />
                 </div>
             ))}
+
+
         </>
     );
 }

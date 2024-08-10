@@ -71,13 +71,29 @@ export default function App() {
 
 
 
+    const [arrVentas, setArrVentas] = useState([])
+    const [getArrVentas, setGetArrVentas] = useState(false)
+
+    useEffect(() => {
+
+        const data = collection(db, 'ventas')
+
+        getDocs(data).then((resp) => {
+            setArrVentas(resp.docs.map((doc) => ({ ...doc.data() }) ))
+        }).catch(err=>{
+             console.error(err)
+        })
+
+    }, [getArrVentas])
+
+
+
+
+
 
     
 
      
-
-
-
 
 
 
@@ -135,9 +151,7 @@ export default function App() {
         <Route path="/adminPolanco/productosBajosSanCarlos" element={<ProductosBajosSanCarlos arr={arr} setGetArr={setGetArr} getArr={getArr}/>} />
 
 
-        <Route path="/adminPolanco/entregas" element={<Entregados arrOrders={arrOrders} setGetArrOrders={setGetArrOrders} getArrOrders={getArrOrders}
-             arr={arr} setGetArr={setGetArr} getArr={getArr}
-        />} />
+        <Route path="/adminPolanco/entregas" element={<Entregados arrVentas={arrVentas} setGetArrVentas={setGetArrVentas} getArrVentas={getArrVentas}/>} />
 
         <Route path="*"  element={<Navigate to='/adminPolanco' />}/> 
       </Routes>

@@ -110,13 +110,18 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                 UpdateByIdInventario(el.id, el);
         }
 
+
+
+
         let ventas = {
-            id,
+            pid : id,
+            name : el.name,
             lastSale : dueDate,
             tallaComprada : tallaState,
             sucursal : el.sucursal,
             price : el.price,
         }
+
 
 
         postVentas(ventas)
