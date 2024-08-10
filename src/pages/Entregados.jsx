@@ -87,27 +87,31 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
 
 
 
+        const[sucursalState, setSucursalState]=useState('')
+
+
+        let sucursales = arrVentasFiltered.filter(el => el.sucursal === sucursalState )
+
+
+        let totalVentasBySucursal = []
+
+        arrVentasFiltered.filter(el => el.sucursal === sucursalState ).map(el=>{
+                totalVentasBySucursal.push(el.price)
+        })
 
 
 
+           let totalVentasBySucursalRender = totalVentasBySucursal.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
 
-
+console.log(sucursalState)
 
     return (
         <>
 
-            <h4>
-                {
-                    arrVentasFiltered.length <= 0 
-                        ? 'Selecciona un Dia en el Calendario' 
-                        : `Cantidad de Productos Vendidos: ${ arrVentasFiltered.length}`
-                }
-            </h4>
+           
 
 
-            <h4 className={arrVentasFiltered.length <= 0 ? 'd-none' : 'bg-dark'}>
-                    Total en Ventas: $ <span className='total'>{total}</span>
-            </h4>
+            
 
 
             <div className="datePicker">
@@ -119,10 +123,38 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
                     dateFormat="dd 'de' MMMM 'de' yyyy"
                 />
             </div>
+
+
+             <p className='bg-gray h4-gray'>
+                {
+                    arrVentasFiltered.length <= 0 
+                        ? 'Selecciona un Dia en el Calendario' 
+                        : `Cantidad de Productos Vendidos: ${ arrVentasFiltered.length}`
+                }
+            </p>
+
+            <p className={arrVentasFiltered.length <= 0 ? 'd-none' : 'total'}>
+                    Total en Ventas: $ <span className='total'>{total}</span>
+            </p>
+
+            <div className={arrVentasFiltered.length <= 0 ? 'd-none' : 'totalButtons bg-gray'}>
+
+                <p>Seleccione una Sucursal</p>
+
+                <button onClick={()=>setSucursalState('Hermosillo')}>HERMOSILLO</button>
+
+                <button onClick={()=>setSucursalState('San Carlos')}>SAN CARLOS</button>
+
+                    <p className={totalVentasBySucursalRender <= 0 ? 'd-none' : 'totalButtons'}>
+                        Total de Ventas en {sucursalState }: ${' '}
+                        <span>{totalVentasBySucursalRender}</span>
+                    </p>
+                
+            </div>
         
 
    
-            {arrVentasFiltered.map((el, i) => (
+            {sucursales.map((el, i) => (
                 <div key={i} className="item">
                     <hr />
 

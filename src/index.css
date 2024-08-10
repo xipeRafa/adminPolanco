@@ -100,6 +100,10 @@ h3{
 	color:goldenrod;
 }
 
+button{
+  padding: 6px;
+}
+
 /*.item{
 	padding: 10px;
 }*/
@@ -147,9 +151,16 @@ h3{
 
 
 .bg-danger{
-  background-color: red;
+  background-color:red;
   color:white;
   padding: 4px;
+}
+
+.bg-gray{
+  background-color: var(--bs-gray-500);
+  color:white;
+  padding: 6px;
+  font-weight: 100;
 }
 
 .bg-blue{
@@ -159,8 +170,6 @@ h3{
 }
 
 .bg-dark{
-  
- 
   padding: 6px;
   display: inline;
 }
@@ -174,8 +183,8 @@ h3{
 .total{
   background-color: #222222;
   font-size: 22px;
-  padding: 10px;
-   color: white;
+  padding: 8px;
+  color: white;
 }
 
 
@@ -583,15 +592,40 @@ h3{
 .datePicker{
   width: 100%;
   text-align: center;
+    margin-bottom: 22px;
+}
+
+@media(max-width:900px){
+  .datePicker{
+        margin: 60px 0;
+  }
 }
 
 .pickers{
   width: 280px;
   text-align: center;
   padding: 6px;
+
 }
 
 
 .d-none{
   display: none;
 }
+
+.totalButtons>button{
+  margin-right: 4px;
+  font-size: 16px;
+   font-weight: 600;
+}
+
+.h4-gray{
+  font-weight: 500;
+  font-size: 20px;
+}
+
+
+
+
+
+
