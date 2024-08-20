@@ -68,7 +68,7 @@ b.forEach((el, i)=>{
             <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
-            {arr.map((el, i) => (
+            {arr.slice(0,8).map((el, i) => (
                 <div key={i} className="item" onDoubleClick={()=>setValueState(el.id)}>
                     <hr />
 
