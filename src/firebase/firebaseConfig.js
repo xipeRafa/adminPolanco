@@ -1,5 +1,7 @@
 
 //Inicializacion de Firebase/Firestore
+//import 'firebase/compat/firestore';
+
 import firebase from 'firebase/compat/app';
 import { getFirestore } from 'firebase/firestore'
 
