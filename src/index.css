@@ -652,7 +652,7 @@ button{
 
 .busquedaFiltros{
   background-color: var(--bs-gray-500);
-  padding: 10px ;
+  padding: 8px ;
   font-weight: bold;
   color: var(--bs-gray-800);
 }
@@ -666,3 +666,6 @@ button{
 
 
 
+.space{
+  color: transparent!important;
+}

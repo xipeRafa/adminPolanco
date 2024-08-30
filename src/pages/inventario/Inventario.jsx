@@ -6,32 +6,42 @@ import './inventario.css'
 
 export default function Inventario({ arr, setGetArr, getArr }) {
 
-let a = arr.filter(el => el.sucursal === 'Hermosillo')
-let b = arr.filter(el => el.sucursal === 'San Carlos')
+
+    useEffect(()=>{
+        setGetArr(!getArr)
+    },[])
 
 
 
-let sum = []
+    let a = arr.filter(el => el.sucursal === 'Hermosillo')
+    let b = arr.filter(el => el.sucursal === 'San Carlos')
 
-a.forEach((el, i)=>{
-    sum.push(el.stockHermosillo * el.price)
-})
+    let sum = []
 
-
-let sumc = []
-
-b.forEach((el, i)=>{
-    sumc.push(el.stockSanCarlos * el.price)
-})
+    a.forEach((el, i)=>{
+        sum.push(el.stockHermosillo * el.price)
+    })
 
 
-// .reduce((acumulador, actual) => acumulador + actual.price, 0)
+    let sumc = []
+
+    b.forEach((el, i)=>{
+        sumc.push(el.stockSanCarlos * el.price)
+    })
+
+
+
+
+    // .reduce((acumulador, actual) => acumulador + actual.price, 0)
 
     const formateador = new Intl.DateTimeFormat("es-MX", { dateStyle: 'long', timeStyle: 'short' });
   
     const milisegundosComoFecha = (milisegundos) => {
           return formateador.format(new Date(milisegundos));
     }; 
+
+
+
 
 
 
@@ -46,10 +56,13 @@ b.forEach((el, i)=>{
     const[togleHMState, setTogleHMState]=useState('hombre')  
     const[togleSucursal, setTogleSucursal]=useState('Hermosillo') 
 
-    useEffect(()=>{
-        setGetArr(!getArr)
-    },[])
+    const[sliceState, setSliceState]=useState(0)
 
+    const resetFinder=()=>{
+        setValueState('')
+        setTogleHMState('')
+        setTogleSucursal('')
+    }
 
     if(valueState.length > 3){
         arr = arr.filter(el => el.id === valueState.trim())
@@ -63,7 +76,7 @@ b.forEach((el, i)=>{
         } 
     }   
 
- 
+    
 
 
 
@@ -71,35 +84,38 @@ b.forEach((el, i)=>{
     return (
         <>
 
-        <div className='filters'>
+            <div className='filters'>
 
-            <input type='search' value={valueState} placeholder='buscar' onChange={handleSearch} />
+                <input type='search' value={valueState} placeholder='buscar' onChange={handleSearch} />
 
-            <button onClick={()=>{ setValueState(''), setTogleHMState(''), setTogleSucursal('') }}>Todos</button>
+                <button onClick={resetFinder}>Todos</button>
 
-            <button onClick={()=>{  setTogleHMState('hombre') }}>Hombre</button>
+                <button onClick={()=>{  setTogleSucursal('Hermosillo') }}>Hermosillo</button>
 
-            <button onClick={()=>{  setTogleHMState('mujer') }}>Mujer</button> 
+                <button onClick={()=>{  setTogleSucursal('San Carlos') }}>San Carlos</button> 
 
-             <button onClick={()=>{  setTogleSucursal('Hermosillo') }}>Hermosillo</button>
+                <button onClick={()=>{  setTogleHMState('hombre') }}>Hombre</button>
 
-            <button onClick={()=>{  setTogleSucursal('San Carlos') }}>San Carlos</button> 
+                <button onClick={()=>{  setTogleHMState('mujer') }}>Mujer</button>   
 
-            
-        </div>
+            </div>
+
 
             <p className={togleHMState !== '' ? 'busquedaFiltros' : 'd-none'}>
-                    <span>Sexo:</span> {togleHMState.toUpperCase()}{' --- '}
-                    <span>Sucurlsal:</span> {togleSucursal.toUpperCase()}
+                    <span> Sucurlsal: </span> {togleSucursal.toUpperCase()}
+                    <span className='space'>---</span>
+                    <span>Sexo: </span> {togleHMState.toUpperCase()}
+                    
             </p>
+
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
             <h4>{sum.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
             <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
-            {arr.sort((a, b) => b.duration - a.duration).map((el, i) => (
-                <div key={i} className="item" onDoubleClick={()=>setValueState(el.id)}>
+            {arr.slice(sliceState ,sliceState + 6).sort((a, b) => b.duration - a.duration).map((el, i) => (
+                <div key={i} className="item" onDoubleClick={()=>{setValueState(el.id), resetFinder}}>
                     <hr />
 
                     {valueState.length > 3 &&
@@ -155,6 +171,28 @@ b.forEach((el, i)=>{
                     <hr />
                 </div>
             ))}
+
+
+
+
+    <div className='slice'>
+            <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - 6), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
+            <button onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
+            <button onClick={()=>{ setSliceState(sliceState + 6),window.scrollTo(0,0) }}>Sigiente ⇨</button>  
+   </div>
+
+   <p>De: {sliceState} a: {sliceState + 6}</p>
+   <p>Paginas de 6 Prod. c/u</p>
+   
+
+
+
+
+
+
+
+
+
         </>
     );
 }
