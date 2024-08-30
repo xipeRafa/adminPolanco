@@ -173,16 +173,15 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             ))}
 
 
+    <hr />
 
-
-    <div className='slice'>
+    <div className={valueState.length > 3 ? 'd-none' : 'slice'}>
             <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - 6), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
             <button onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
             <button onClick={()=>{ setSliceState(sliceState + 6),window.scrollTo(0,0) }}>Sigiente ⇨</button>  
+            <p>De: {sliceState} a: {sliceState + 6}</p>
+            <p>Paginas de 6 Prod. c/u</p>
    </div>
-
-   <p>De: {sliceState} a: {sliceState + 6}</p>
-   <p>Paginas de 6 Prod. c/u</p>
    
 
 
