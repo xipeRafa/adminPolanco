@@ -43,17 +43,27 @@ b.forEach((el, i)=>{
     }
 
 
+    const[togleHMState, setTogleHMState]=useState('hombre')  
+    const[togleSucursal, setTogleSucursal]=useState('Hermosillo') 
 
     useEffect(()=>{
         setGetArr(!getArr)
     },[])
 
 
-      if(valueState.length > 3){
-        arr = arr.filter(el => el.id == valueState.trim())
-      }else{
-        arr = arr
-      }      
+    if(valueState.length > 3){
+        arr = arr.filter(el => el.id === valueState.trim())
+        console.log('busqueda')
+    }else{
+
+        if(togleHMState !== ''){
+            arr = arr.filter(el => el.para === togleHMState).filter(el => el.sucursal === togleSucursal)
+        }else{
+            arr = arr
+        } 
+    }   
+
+ 
 
 
 
@@ -61,7 +71,27 @@ b.forEach((el, i)=>{
     return (
         <>
 
-            <input type='search' style={{width:'180px'}} className='searchInput' value={valueState} placeholder='buscar' onChange={handleSearch} />
+        <div className='filters'>
+
+            <input type='search' value={valueState} placeholder='buscar' onChange={handleSearch} />
+
+            <button onClick={()=>{ setValueState(''), setTogleHMState(''), setTogleSucursal('') }}>Todos</button>
+
+            <button onClick={()=>{  setTogleHMState('hombre') }}>Hombre</button>
+
+            <button onClick={()=>{  setTogleHMState('mujer') }}>Mujer</button> 
+
+             <button onClick={()=>{  setTogleSucursal('Hermosillo') }}>Hermosillo</button>
+
+            <button onClick={()=>{  setTogleSucursal('San Carlos') }}>San Carlos</button> 
+
+            
+        </div>
+
+            <p className={togleHMState !== '' ? 'busquedaFiltros' : 'd-none'}>
+                    <span>Sexo:</span> {togleHMState.toUpperCase()}{' --- '}
+                    <span>Sucurlsal:</span> {togleSucursal.toUpperCase()}
+            </p>
 
             <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
             <h4>{sum.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
@@ -78,13 +108,13 @@ b.forEach((el, i)=>{
                     </div>}
 
                     <div className="texto">
+                        <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
                         <h3>Nombre: {el.name}</h3>
                         <b>ID: {el.id}</b>
                         <p>Sucursal: {el.sucursal}</p>
                         <p>Categoria: {el.category}</p>
                         <p>Tela: {el.tela}</p>
 
-                        <p>Fecha: {milisegundosComoFecha(el.duration)}</p>
 
                         {el?.historiSales?.map((fecha, i) => {
                                 return (

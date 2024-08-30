@@ -616,7 +616,7 @@ button{
 .totalButtons>button{
   margin-right: 4px;
   font-size: 16px;
-   font-weight: 600;
+  font-weight: 600;
 }
 
 .h4-gray{
@@ -628,6 +628,40 @@ button{
   color: var(--bs-gray-800);
 }
 
+.filters{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters>*{
+  width: 180px;
+  height: 32px;
+  margin-right: 10px;
+  margin-bottom: 10px ;
+}
+.filters>*:last-child{
+  margin-right: 0;
+}
+
+@media(max-width:1000px){
+  .filters{
+    flex-direction: column;
+  }
+}
+
+.busquedaFiltros{
+  background-color: var(--bs-gray-500);
+  padding: 10px ;
+  font-weight: bold;
+  color: var(--bs-gray-800);
+}
+
+
+.busquedaFiltros>span{
+  font-weight: 100;
+   color: var(--bs-gray-700);
+}
 
 
 
