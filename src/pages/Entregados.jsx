@@ -147,7 +147,7 @@ console.log(sucursalState)
 
                     <p className={totalVentasBySucursalRender <= 0 ? 'd-none' : 'totalButtons'}>
                         Total de Ventas en {sucursalState }: ${' '}
-                        <span>{totalVentasBySucursalRender}</span>
+                        <span className='totalVentas'>{totalVentasBySucursalRender}</span>
                     </p>
                 
             </div>
@@ -161,7 +161,7 @@ console.log(sucursalState)
                     <div className="texto">
                         <h3>Sucursal {el.sucursal}</h3>
                         <p>Fecha de Venta: {milisegundosComoFecha(el.lastSale)}</p>
-                        <b>ID: {el.pid}</b>
+                        <p>ID: {el.pid}</p>
                         <p>Producto: {el.name}</p>                      
                         <p>Talla : { el.tallaComprada}</p>
                         <b>Precio: $ { el.price}</b>

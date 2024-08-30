@@ -61,9 +61,9 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
     const[tallaState, setTallaState]=useState('')
 
     const handleTallaState=(e)=>{
-        let talla = e.target.value
+        let talla = e.target.value.toLowerCase()
 
-        if(e.target.value.length>2){
+        if(e.target.value.length>4){
             return
         }
         setTallaState(talla)
@@ -149,7 +149,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
     return (
         <>
             <input
-                style={{display:'none'}}
+                //style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
@@ -174,9 +174,9 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                     )}
 
                     <div className="texto">
-                        <h3>Nombre: {el.name}</h3>
-                        <p>ID: {el.id}</p>
-                        <p>Sucursal: {el.sucursal}</p>
+                        {/*<h3>Nombre: {el.name}</h3>*/}
+                        <p>{el.description}</p>
+                        {/*<p>Sucursal: {el.sucursal}</p>*/}
                         <span>Tallas: </span>
                         {el.talla.map((el, i)=>(
                             <span key={i+'ta'}> {el},</span>
