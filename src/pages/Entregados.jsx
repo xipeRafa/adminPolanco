@@ -137,7 +137,7 @@ console.log(sucursalState)
                     Total en Ventas: $ <span className='total'>{total}</span>
             </p>
 
-            <div className={arrVentasFiltered.length <= 0 ? 'd-none' : 'totalButtons bg-gray'}>
+            <div className={arrVentasFiltered.length <= 0 ? 'd-none' : 'bg-gray'}>
 
                 <p>Seleccione una Sucursal</p>
 
