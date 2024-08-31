@@ -69,7 +69,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     const[togleSucursal, setTogleSucursal]=useState('Hermosillo') 
 
     const[sliceState, setSliceState]=useState(0)
-
+console.log(sliceState)
     const resetFinder=()=>{
         setValueState('')
         setTogleHMState('')
@@ -193,9 +193,9 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
             <hr />
 
-            <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - ProdByPage), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
+            <button className={sliceState == 0 ? 'd-none' : ''} onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - ProdByPage), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
 
-            <button onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
+            <button className={sliceState == 0 ? 'd-none' : ''} onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
 
             <button onClick={()=>{ 
                                     if(arr.length > sliceState + ProdByPage){
