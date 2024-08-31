@@ -10,12 +10,12 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
     let tallas = []
 
+
     arr.forEach((el, i)=>{
         if(el.talla[0] !== '-'){
             tallas.push(el.talla) 
         }  
     })
-
 
 
 
@@ -92,8 +92,8 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     }   
 
     
-
-
+    let ProdByPage = 6;
+    const[sliceAlert, setSliceAlert]=useState('')
 
 
     return (
@@ -128,7 +128,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
-            {arr.slice(sliceState ,sliceState + 6).sort((a, b) => b.duration - a.duration).map((el, i) => (
+            {arr.slice(sliceState ,sliceState + ProdByPage).sort((a, b) => b.duration - a.duration).map((el, i) => (
                 <div key={i} className="item" onDoubleClick={()=>{setValueState(el.id), resetFinder}}>
                     <hr />
 
@@ -193,25 +193,31 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
             <hr />
 
-            <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - 6), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
+            <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - ProdByPage), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
 
             <button onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
 
             <button onClick={()=>{ 
-                                    if(arr.length > sliceState + 6){
-                                        setSliceState(sliceState + 6) 
+                                    if(arr.length > sliceState + ProdByPage){
+                                        setSliceState(sliceState + ProdByPage) 
                                         window.scrollTo(0,0) 
+                                    }else{
+                                        setSliceAlert(' No hay mas Productos en esta Lista')
+                                        setTimeout(()=>{
+                                            setSliceAlert('')
+                                        },2500)
                                     }
                                 }
                     }>
-                        Sigiente ⇨
+                        Sigiente ⇨ 
             </button>  
+            <span className='sliceAlert'>{sliceAlert}</span>
 
 
 
 
-            <p>De: {sliceState} a: {arr.length > sliceState + 6 ? sliceState + 6 : arr.length}</p>
-            <p>Paginas de 6 Prod. c/u</p>
+            <p>De: {sliceState + 1} a: {arr.length > sliceState + ProdByPage ? sliceState + ProdByPage : arr.length}</p>
+            <p>Paginas de {ProdByPage} Prod. c/u </p>
    </div>
    
 
