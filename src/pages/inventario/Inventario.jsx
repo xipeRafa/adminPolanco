@@ -209,7 +209,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
                                     }
                                 }
                     }>
-                        Sigiente ⇨ 
+                        Siguiente ⇨ 
             </button>  
             <span className='sliceAlert'>{sliceAlert}</span>
 
