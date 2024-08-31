@@ -663,9 +663,24 @@ button{
    color: var(--bs-gray-700);
 }
 
-
-
-
-.space{
-  color: transparent!important;
+.busquedaFiltros>span:nth-child(2){
+    margin-left: 22px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

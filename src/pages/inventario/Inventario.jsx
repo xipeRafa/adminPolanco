@@ -7,6 +7,18 @@ import './inventario.css'
 export default function Inventario({ arr, setGetArr, getArr }) {
 
 
+
+    let tallas = []
+
+    arr.forEach((el, i)=>{
+        if(el.talla[0] !== '-'){
+            tallas.push(el.talla) 
+        }  
+    })
+
+
+
+
     useEffect(()=>{
         setGetArr(!getArr)
     },[])
@@ -62,7 +74,10 @@ export default function Inventario({ arr, setGetArr, getArr }) {
         setValueState('')
         setTogleHMState('')
         setTogleSucursal('')
+        setSliceState(0)
     }
+
+
 
     if(valueState.length > 3){
         arr = arr.filter(el => el.id === valueState.trim())
@@ -86,30 +101,29 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
             <div className='filters'>
 
-                <input type='search' value={valueState} placeholder='buscar' onChange={handleSearch} />
+                <input type='search' value={valueState} placeholder='Buscar' onChange={handleSearch} />
 
                 <button onClick={resetFinder}>Todos</button>
 
-                <button onClick={()=>{  setTogleSucursal('Hermosillo') }}>Hermosillo</button>
+                <button onClick={()=>{ setTogleSucursal('Hermosillo'), setSliceState(0) }}>Hermosillo</button>
 
-                <button onClick={()=>{  setTogleSucursal('San Carlos') }}>San Carlos</button> 
+                <button onClick={()=>{ setTogleSucursal('San Carlos'), setSliceState(0) }}>San Carlos</button> 
 
-                <button onClick={()=>{  setTogleHMState('hombre') }}>Hombre</button>
+                <button onClick={()=>{ setTogleHMState('hombre'), setSliceState(0) }}>Hombre</button>
 
-                <button onClick={()=>{  setTogleHMState('mujer') }}>Mujer</button>   
+                <button onClick={()=>{ setTogleHMState('mujer'), setSliceState(0) }}>Mujer</button>   
 
             </div>
 
 
             <p className={togleHMState !== '' ? 'busquedaFiltros' : 'd-none'}>
                     <span> Sucurlsal: </span> {togleSucursal.toUpperCase()}
-                    <span className='space'>---</span>
                     <span>Sexo: </span> {togleHMState.toUpperCase()}
                     
             </p>
 
 
-            <h3>INVENTARIO <span className='number'> { arr.length}</span></h3>
+            <h4>INVENTARIO <span className='number'> {arr.length}</span>   {tallas.flat().length}</h4>
             <h4>{sum.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
             <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
@@ -173,13 +187,30 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             ))}
 
 
-    <hr />
+ 
 
     <div className={valueState.length > 3 ? 'd-none' : 'slice'}>
+
+            <hr />
+
             <button onClick={()=>{ if(sliceState > 0){setSliceState(sliceState - 6), window.scrollTo(0,0)} }}>⇦ Anterior</button>  
+
             <button onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
-            <button onClick={()=>{ setSliceState(sliceState + 6),window.scrollTo(0,0) }}>Sigiente ⇨</button>  
-            <p>De: {sliceState} a: {sliceState + 6}</p>
+
+            <button onClick={()=>{ 
+                                    if(arr.length > sliceState + 6){
+                                        setSliceState(sliceState + 6) 
+                                        window.scrollTo(0,0) 
+                                    }
+                                }
+                    }>
+                        Sigiente ⇨
+            </button>  
+
+
+
+
+            <p>De: {sliceState} a: {arr.length > sliceState + 6 ? sliceState + 6 : arr.length}</p>
             <p>Paginas de 6 Prod. c/u</p>
    </div>
    
@@ -195,3 +226,5 @@ export default function Inventario({ arr, setGetArr, getArr }) {
         </>
     );
 }
+
+
