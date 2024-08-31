@@ -69,7 +69,8 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     const[togleSucursal, setTogleSucursal]=useState('Hermosillo') 
 
     const[sliceState, setSliceState]=useState(0)
-console.log(sliceState)
+
+
     const resetFinder=()=>{
         setValueState('')
         setTogleHMState('')
@@ -81,7 +82,6 @@ console.log(sliceState)
 
     if(valueState.length > 3){
         arr = arr.filter(el => el.id === valueState.trim())
-        console.log('busqueda')
     }else{
 
         if(togleHMState !== ''){
