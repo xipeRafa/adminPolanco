@@ -128,7 +128,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
-            {arr.slice(sliceState ,sliceState + ProdByPage).sort((a, b) => b.duration - a.duration).map((el, i) => (
+            {arr.sort((a, b) => b.duration - a.duration).slice(sliceState ,sliceState + ProdByPage).map((el, i) => (
                 <div key={i} className="item" onDoubleClick={()=>{setValueState(el.id), resetFinder}}>
                     <hr />
 
