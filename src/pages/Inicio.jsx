@@ -74,12 +74,18 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
 
     const handleSales = (id, el) => {
+        
 
-        let newTallasValue = el.talla.filter(el => el !== tallaState)
+        let arrTalla = el.talla
+
+        let indice = arrTalla.indexOf(tallaState); // obtenemos el indice
+        arrTalla.splice(indice, 1);
+
+
 
         el.takenByCustomer = true;
         //el.tallaComprada = tallaState
-        el.talla = newTallasValue
+        el.talla = arrTalla
 
         if (el.historiSales === undefined) {
 
@@ -149,7 +155,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
     return (
         <>
             <input
-                style={{display:'none'}}
+                //style={{display:'none'}}
                 type="search"
                 className="searchInput"
                 value={valueState}
