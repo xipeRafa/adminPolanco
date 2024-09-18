@@ -8,15 +8,21 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
+
     let tallas = []
+    let arr2 = []
 
 
     arr.forEach((el, i)=>{
         if(el.talla[0] !== '-'){
-            tallas.push(el.talla) 
+            if(el.price !== 0){
+                tallas.push(el.talla) 
+                arr2.push(el) 
+            }
         }  
     })
 
+console.log(tallas)
 
 
     useEffect(()=>{
@@ -25,21 +31,25 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
-    let a = arr.filter(el => el.sucursal === 'Hermosillo')
-    let b = arr.filter(el => el.sucursal === 'San Carlos')
+    let sucursalHermosillo = arr2.filter(el => el.sucursal === 'Hermosillo')
+    let sucursalSanCarlos = arr2.filter(el => el.sucursal === 'San Carlos')
 
-    let sum = []
 
-    a.forEach((el, i)=>{
-        sum.push(el.stockHermosillo * el.price)
+
+    let preciosHermosilloArr = []
+
+    sucursalHermosillo.forEach((el, i)=>{
+        preciosHermosilloArr.push(el.stockHermosillo * el.price)
     })
 
 
-    let sumc = []
 
-    b.forEach((el, i)=>{
-        sumc.push(el.stockSanCarlos * el.price)
+    let preciosSanCarlosArr = []
+
+    sucursalSanCarlos.forEach((el, i)=>{
+        preciosSanCarlosArr.push(el.stockSanCarlos * el.price)
     })
+
 
 
 
@@ -93,6 +103,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
     
     let ProdByPage = 6;
+
     const[sliceAlert, setSliceAlert]=useState('')
 
 
@@ -119,13 +130,13 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             <p className={togleHMState !== '' ? 'busquedaFiltros' : 'd-none'}>
                     <span> Sucurlsal: </span> {togleSucursal.toUpperCase()}
                     <span>Sexo: </span> {togleHMState.toUpperCase()}
-                    
             </p>
 
 
-            <h4>INVENTARIO <span className='number'> {arr.length}</span>   {tallas.flat().length}</h4>
-            <h4>{sum.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
-            <h4>{sumc.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
+            <h4>INVENTARIO  <span className='number'>  {tallas.flat().length} Productos en Total </span> </h4>
+
+            <h4>{preciosHermosilloArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
+            <h4>{preciosSanCarlosArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
             {arr.sort((a, b) => b.duration - a.duration).slice(sliceState ,sliceState + ProdByPage).map((el, i) => (

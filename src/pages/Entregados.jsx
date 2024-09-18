@@ -100,7 +100,6 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
         })
 
 
-
         let totalVentasBySucursalRender = totalVentasBySucursal.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)
 
 
