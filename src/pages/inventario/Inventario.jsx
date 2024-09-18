@@ -22,7 +22,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
         }  
     })
 
-console.log(tallas)
+
 
 
     useEffect(()=>{
@@ -91,13 +91,13 @@ console.log(tallas)
 
 
     if(valueState.length > 3){
-        arr = arr.filter(el => el.id === valueState.trim())
+        arr2 = arr2.filter(el => el.id === valueState.trim())
     }else{
 
         if(togleHMState !== ''){
-            arr = arr.filter(el => el.para === togleHMState).filter(el => el.sucursal === togleSucursal)
+            arr2 = arr2.filter(el => el.para === togleHMState).filter(el => el.sucursal === togleSucursal)
         }else{
-            arr = arr
+            arr2 = arr2
         } 
     }   
 
@@ -139,7 +139,7 @@ console.log(tallas)
             <h4>{preciosSanCarlosArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
 
 
-            {arr.sort((a, b) => b.duration - a.duration).slice(sliceState ,sliceState + ProdByPage).map((el, i) => (
+            {arr2.sort((a, b) => b.duration - a.duration).slice(sliceState ,sliceState + ProdByPage).map((el, i) => (
                 <div key={i} className="item" onDoubleClick={()=>{setValueState(el.id), resetFinder}}>
                     <hr />
 
@@ -209,11 +209,11 @@ console.log(tallas)
             <button className={sliceState === ProdByPage || sliceState === 0 ? 'd-none' : ''} onClick={()=>{ setSliceState(0), window.scrollTo(0,0) }}>０</button>   
 
             <button onClick={()=>{ 
-                                    if(arr.length > sliceState + ProdByPage){
+                                    if(arr2.length > sliceState + ProdByPage){
                                         setSliceState(sliceState + ProdByPage) 
                                         window.scrollTo(0,0) 
                                     }else{
-                                        setSliceAlert(' No hay mas Productos en esta Lista')
+                                        setSliceAlert(' No hay mas Modelos en esta Lista')
                                         setTimeout(()=>{
                                             setSliceAlert('')
                                         },2500)
@@ -227,8 +227,8 @@ console.log(tallas)
 
 
 
-            <p>De: {sliceState + 1} a: {arr.length > sliceState + ProdByPage ? sliceState + ProdByPage : arr.length}</p>
-            <p>Paginas de {ProdByPage} Prod. c/u </p>
+            <p>De: {sliceState + 1} a: {arr2.length > sliceState + ProdByPage ? sliceState + ProdByPage : arr2.length}</p>
+            <p>Paginas de {ProdByPage} Modelos. c/u </p>
    </div>
    
 
