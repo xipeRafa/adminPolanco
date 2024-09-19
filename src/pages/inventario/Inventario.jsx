@@ -16,11 +16,357 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     arr.forEach((el, i)=>{
         if(el.talla[0] !== '-'){
             if(el.price !== 0){
+
                 tallas.push(el.talla) 
-                arr2.push(el) 
+
+                if(el.sucursal === 'Hermosillo'){
+                    arr2.push(el) 
+                }    
             }
         }  
     })
+
+
+    let algodonArr = []
+
+    let tallasAlgodonGua = []
+    let tallasLinoGua = []
+
+    let algodonColor = []
+    let algodonBlanco = []
+
+
+    let linoColor = []
+    let linoBlanco = []
+
+     
+
+    arr2.forEach((el, i)=>{
+        if(el.tela === 'algodon' && el.name === 'Guayabera' && el.stockHermosillo >= 1){
+            algodonArr.push(el) 
+            tallasAlgodonGua.push(el.talla)   
+        }
+
+        if(el.tela === 'lino' && el.name === 'Guayabera' && el.stockHermosillo >= 1){
+            tallasLinoGua.push(el.talla)   
+        }
+
+
+
+
+
+        if(el.tela === 'algodon' && el.category === 'color' && el.name === 'Guayabera' && el.stockHermosillo >= 1){
+            algodonColor.push(el.talla)
+        }
+
+        if(el.tela === 'algodon' && el.category === 'blanco'&& el.name === 'Guayabera' && el.stockHermosillo >= 1 ){
+            algodonBlanco.push(el.talla)
+        }
+
+
+
+
+        if(el.tela === 'lino' && el.category === 'color' && el.name === 'Guayabera' && el.stockHermosillo >= 1){
+            linoColor.push(el.talla)
+        }
+
+        if(el.tela === 'lino' && el.category === 'blanco'&& el.name === 'Guayabera' && el.stockHermosillo >= 1 ){
+            linoBlanco.push(el.talla)
+        }
+
+         //  if(el.tela === 'algodon' && el.category === 'blanco' && el.name === 'Guayabera' && el.stockHermosillo > 0 && el.talla > 0){
+         //     algodonBlanco36.push(el.tallla)
+         // }
+    })
+
+
+
+
+    let algodonBlanco36 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='36'){  
+                algodonBlanco36.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor36 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='36'){  
+                algodonColor36.push(el)
+            }
+        })
+    })
+
+
+
+
+    let algodonBlanco38 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='38'){  
+                algodonBlanco38.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor38 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='38'){  
+                algodonColor38.push(el)
+            }
+        })
+    })
+
+
+       let algodonBlanco40 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='40'){  
+                algodonBlanco40.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor40 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='40'){  
+                algodonColor40.push(el)
+            }
+        })
+    })
+
+         let algodonBlanco42 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='42'){  
+                algodonBlanco42.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor42 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='42'){  
+                algodonColor42.push(el)
+            }
+        })
+    })
+
+
+
+            let algodonBlanco44 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='44'){  
+                algodonBlanco44.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor44 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='44'){  
+                algodonColor44.push(el)
+            }
+        })
+    })
+
+
+
+
+            let algodonBlanco46 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='46'){  
+                algodonBlanco46.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor46 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='46'){  
+                algodonColor46.push(el)
+            }
+        })
+    })
+
+
+
+              let algodonBlanco48 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='48'){  
+                algodonBlanco48.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor48 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='48'){  
+                algodonColor48.push(el)
+            }
+        })
+    })
+
+
+
+                let algodonBlanco50 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='50'){  
+                algodonBlanco50.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor50 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='50'){  
+                algodonColor50.push(el)
+            }
+        })
+    })
+
+
+
+                let algodonBlanco52 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='52'){  
+                algodonBlanco52.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor52 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='52'){  
+                algodonColor52.push(el)
+            }
+        })
+    })
+
+
+                  let algodonBlanco54 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='54'){  
+                algodonBlanco54.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor54 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='54'){  
+                algodonColor54.push(el)
+            }
+        })
+    })
+
+
+
+
+                     let algodonBlanco56 = []
+
+    algodonBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='56'){  
+                algodonBlanco56.push(el)
+            }
+        })
+    })
+
+
+    let algodonColor56 = []
+
+    algodonColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='56'){  
+                algodonColor56.push(el)
+            }
+        })
+    })
+
+
+
+
+
+// =================== lino ========================================//// =================== lino ========================================//
+// =================== lino ========================================//// =================== lino ========================================//
+// =================== lino ========================================//// =================== lino ========================================//
+
+
+
+    let linoBlanco36 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='ch'){  
+                linoBlanco36.push(el)
+            }
+        })
+    })
+
+
+    let linoColor36 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='ch'){  
+                linoColor36.push(el)
+            }
+        })
+    })
+
+
+
+
+console.log('l-blanco:',linoBlanco36, 'l-color:',linoColor36 )
 
 
 
@@ -132,8 +478,23 @@ export default function Inventario({ arr, setGetArr, getArr }) {
                     <span>Sexo: </span> {togleHMState.toUpperCase()}
             </p>
 
+<h4>INVENTARIO</h4>
+            {/*<h4>  <span className='number'>  {tallas.flat().length} Productos en Total </span> </h4>*/}
 
-            <h4>INVENTARIO  <span className='number'>  {tallas.flat().length} Productos en Total </span> </h4>
+
+
+            <h4>  
+                <span className='number'>{tallasAlgodonGua.flat().length}</span>  Guayaberas de Algodon
+                <span className='number'>{algodonColor.flat().length}</span> Color, 
+                <span className='number'>{algodonBlanco.flat().length}</span> Blancas
+            </h4>
+
+
+
+
+              <h4> <span className='number'>  { tallasLinoGua.flat().length } Guayaberas de Lino </span> </h4>
+
+          
 
             <h4>{preciosHermosilloArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
             <h4>{preciosSanCarlosArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - San Carlos</h4>
