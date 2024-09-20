@@ -39,6 +39,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     let linoColor = []
     let linoBlanco = []
 
+ let linoBlanco38ID = []
      
 
     arr2.forEach((el, i)=>{
@@ -72,6 +73,26 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
         if(el.tela === 'lino' && el.category === 'blanco'&& el.name === 'Guayabera' && el.stockHermosillo >= 1 ){
             linoBlanco.push(el.talla)
+            if(el.talla[0] === '38' || el.talla[0] === 'm' ||
+               el.talla[1] === '38' || el.talla[1] === 'm' || 
+               el.talla[2] === '38' || el.talla[2] === 'm' || 
+               el.talla[3] === '38' || el.talla[3] === 'm' ||
+               el.talla[4] === '38' || el.talla[4] === 'm' ||
+               el.talla[5] === '38' || el.talla[5] === 'm' ||
+               el.talla[6] === '38' || el.talla[6] === 'm' ||
+               el.talla[7] === '38' || el.talla[7] === 'm' ||
+               el.talla[8] === '38' || el.talla[8] === 'm' ||
+               el.talla[9] === '38' || el.talla[9] === 'm' ||
+               el.talla[10] === '38' || el.talla[10] === 'm' ||
+               el.talla[11] === '38' || el.talla[11] === 'm' ||
+               el.talla[12] === '38' || el.talla[12] === 'm' ||
+                el.talla[13] === '38' || el.talla[13] === 'm' ||
+                 el.talla[14] === '38' || el.talla[14] === 'm' ||
+                  el.talla[15] === '38' || el.talla[15] === 'm' 
+               )
+            {
+             linoBlanco38ID.push(el.id)
+            }
         }
 
          //  if(el.tela === 'algodon' && el.category === 'blanco' && el.name === 'Guayabera' && el.stockHermosillo > 0 && el.talla > 0){
@@ -80,7 +101,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     })
 
 
-
+console.log(linoBlanco38ID)
 
     let algodonBlanco36 = []
 
@@ -102,8 +123,6 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             }
         })
     })
-
-
 
 
     let algodonBlanco38 = []
@@ -148,6 +167,11 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             }
         })
     })
+
+
+
+
+
 
          let algodonBlanco42 = []
 
@@ -335,7 +359,6 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
-
 // =================== lino ========================================//// =================== lino ========================================//
 // =================== lino ========================================//// =================== lino ========================================//
 // =================== lino ========================================//// =================== lino ========================================//
@@ -346,7 +369,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
     linoBlanco.forEach((el, i)=>{
         el.forEach((el,i)=>{
-            if(el==='ch'){  
+            if(el==='ch' || el==='36'){  
                 linoBlanco36.push(el)
             }
         })
@@ -357,16 +380,124 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
     linoColor.forEach((el, i)=>{
         el.forEach((el,i)=>{
-            if(el==='ch'){  
+            if(el==='ch' || el==='36'){  
                 linoColor36.push(el)
             }
         })
     })
 
 
+    let linoBlanco38 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='m' || el==='38'){  
+                  linoBlanco38.push(el)
+            }
+        })
+    })
 
 
-console.log('l-blanco:',linoBlanco36, 'l-color:',linoColor36 )
+
+    let linoColor38 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='m' || el==='38'){  
+                linoColor38.push(el)
+            }
+        })
+    })
+
+
+     let linoBlanco40 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='g' || el==='40' || el==='l'){  
+                linoBlanco40.push(el)
+            }
+        })
+    })
+
+
+    let linoColor40 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='g' || el==='40' || el==='l'){  
+                linoColor40.push(el)
+            }
+        })
+    })
+
+
+     let linoBlanco42 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xl' || el==='42'){  
+                linoBlanco42.push(el)
+            }
+        })
+    })
+
+
+    let linoColor42 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xl' || el==='42'){  
+                linoColor42.push(el)
+            }
+        })
+    })
+
+
+      let linoBlanco44 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xxl' || el==='44'){  
+                linoBlanco44.push(el)
+            }
+        })
+    })
+
+
+    let linoColor44 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xxl' || el==='44'){  
+                linoColor44.push(el)
+            }
+        })
+    })
+
+
+    let linoBlanco46 = []
+
+    linoBlanco.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xxxl' || el==='46'){  
+                linoBlanco46.push(el)
+            }
+        })
+    })
+
+
+    let linoColor46 = []
+
+    linoColor.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xxxl' || el==='46'){  
+                linoColor46.push(el)
+            }
+        })
+    })
+
+
 
 
 
@@ -478,22 +609,82 @@ console.log('l-blanco:',linoBlanco36, 'l-color:',linoColor36 )
                     <span>Sexo: </span> {togleHMState.toUpperCase()}
             </p>
 
-<h4>INVENTARIO</h4>
+            <hr />
+
+            <h4>INVENTARIO</h4>
+
+
             {/*<h4>  <span className='number'>  {tallas.flat().length} Productos en Total </span> </h4>*/}
 
 
 
-            <h4>  
-                <span className='number'>{tallasAlgodonGua.flat().length}</span>  Guayaberas de Algodon
-                <span className='number'>{algodonColor.flat().length}</span> Color, 
-                <span className='number'>{algodonBlanco.flat().length}</span> Blancas
+            <h4> 
+                <span className='number'>{tallasAlgodonGua.flat().length}</span>  Guayaberas de Algodon. 
+                 <span className='number'>{algodonColor.flat().length}</span> de Color
+                <span className='number'>{algodonBlanco.flat().length}</span> Blancas. 
             </h4>
 
 
+            <h4> 
+                <span className='number'>{tallasLinoGua.flat().length}</span>  Guayaberas de Lino. 
+                 <span className='number'>{linoColor.flat().length}</span> de Color 
+                <span className='number'>{linoBlanco.flat().length}</span> Blancas.
+            </h4>
+
+            <hr />
+
+            <p>Guayaberas Blancas Algodon Talla 36: <span className='number'>{algodonBlanco36.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 38: <span className='number'>{algodonBlanco38.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 40: <span className='number'>{algodonBlanco40.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 42: <span className='number'>{algodonBlanco42.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 44: <span className='number'>{algodonBlanco44.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 46: <span className='number'>{algodonBlanco46.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 48: <span className='number'>{algodonBlanco48.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 50: <span className='number'>{algodonBlanco50.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 52: <span className='number'>{algodonBlanco52.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 54: <span className='number'>{algodonBlanco54.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Algodon Talla 56: <span className='number'>{algodonBlanco56.length}</span> Piezas</p>
+
+            <hr />
+
+            <p>Guayaberas Color Algodon Talla 36: <span className='number'>{algodonColor36.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 38: <span className='number'>{algodonColor38.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 40: <span className='number'>{algodonColor40.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 42: <span className='number'>{algodonColor42.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 44: <span className='number'>{algodonColor44.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 46: <span className='number'>{algodonColor46.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 48: <span className='number'>{algodonColor48.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 50: <span className='number'>{algodonColor50.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 52: <span className='number'>{algodonColor52.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 54: <span className='number'>{algodonColor54.length}</span> Piezas</p>
+            <p>Guayaberas Color Algodon Talla 56: <span className='number'>{algodonColor56.length}</span> Piezas</p>
+
+               <hr />
 
 
-              <h4> <span className='number'>  { tallasLinoGua.flat().length } Guayaberas de Lino </span> </h4>
 
+            <p>Guayaberas Blancas Lino Talla 36: <span className='number'>{linoBlanco36.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Lino Talla 38: <span className='number'>{linoBlanco38.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Lino Talla 40: <span className='number'>{linoBlanco40.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Lino Talla 42: <span className='number'>{linoBlanco42.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Lino Talla 44: <span className='number'>{linoBlanco44.length}</span> Piezas</p>
+            <p>Guayaberas Blancas Lino Talla 46: <span className='number'>{linoBlanco46.length}</span> Piezas</p>
+                
+
+            <hr />
+
+
+
+            <p>Guayaberas Color Lino Talla 36: <span className='number'>{linoColor36.length}</span> Piezas</p>
+            <p>Guayaberas Color Lino Talla 38: <span className='number'>{linoColor38.length}</span> Piezas</p>
+            <p>Guayaberas Color Lino Talla 40: <span className='number'>{linoColor40.length}</span> Piezas</p>
+            <p>Guayaberas Color Lino Talla 42: <span className='number'>{linoColor42.length}</span> Piezas</p>
+            <p>Guayaberas Color Lino Talla 44: <span className='number'>{linoColor44.length}</span> Piezas</p>
+            <p>Guayaberas Color Lino Talla 46: <span className='number'>{linoColor46.length}</span> Piezas</p>
+
+
+
+<hr />
           
 
             <h4>{preciosHermosilloArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>

@@ -180,7 +180,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
                     )}
 
                     <div className="texto">
-                        {/*<h3>Nombre: {el.name}</h3>*/}
+                        <p>{el.id}</p>
                         <p>{el.description}</p>
                         {/*<p>Sucursal: {el.sucursal}</p>*/}
                         <span>Tallas: </span>
