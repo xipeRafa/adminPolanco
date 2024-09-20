@@ -46,6 +46,8 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     let mujeresPantalonArr = []
      
 
+
+
     arr2.forEach((el, i)=>{
         if(el.tela === 'algodon' && el.name === 'Guayabera' && el.stockHermosillo >= 1){
             algodonArr.push(el) 
@@ -94,7 +96,77 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
 
 
-    console.log(mujeresPantalonArr)
+
+    let mujeresArrXch = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xch' || el === 'xs'){  
+                mujeresArrXch.push(el)
+            }
+        })
+    })
+
+
+
+    let mujeresArrCh = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='ch'){  
+                mujeresArrCh.push(el)
+            }
+        })
+    })
+
+
+
+
+
+    let mujeresArrM = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='m'){  
+                mujeresArrM.push(el)
+            }
+        })
+    })
+
+
+
+     let mujeresArrG = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='g' || el==='l'){  
+                mujeresArrG.push(el)
+            }
+        })
+    })
+
+
+     let mujeresArrXl = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xl' || el==='xg'){  
+                mujeresArrXl.push(el)
+            }
+        })
+    })
+
+
+      let mujeresArrXxl = []
+
+    mujeresArr.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='xxl' || el==='xxg'){  
+                mujeresArrXxl.push(el)
+            }
+        })
+    })
+
 
 
      let pantalonesHombre30 = []
@@ -710,7 +782,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
             <hr />
 
-            <h4>INVENTARIO</h4>
+            <h4>INVENTARIO {new Date().toLocaleDateString()}</h4>
 
 
             {/*<h4>  <span className='number'>  {tallas.flat().length} Productos en Total </span> </h4>*/}
@@ -806,10 +878,16 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             <p>Pantalones Hombre Lino Talla 44: <span className='number'>{pantalonesHombre44.length}</span> Piezas</p>
             <p>Pantalones Hombre Lino Talla 46: <span className='number'>{pantalonesHombre46.length}</span> Piezas</p>
             <p>Pantalones Hombre Lino Talla 48: <span className='number'>{pantalonesHombre48.length}</span> Piezas</p>
+     <hr />
+            <h4>Mujer</h4>
 
-   {/*         <h4>Pantalones Mujer</h4>
-
-             <p>Pantalones mujer <span className='number'>{ mujeresPantalonArr.filter(el=>el==='ch').length}</span> Piezas</p>*/}
+            <p>Mujer Talla XCH: <span className='number'>{ mujeresArrXch.length}</span> Piezas</p>
+            <p>_Mujer Talla CH: <span className='number'>{ mujeresArrCh.length}</span> Piezas</p>
+            <p>__Mujer Talla M: <span className='number'>{ mujeresArrM.length}</span> Piezas</p>
+            <br />
+            <p>__Mujer Talla G: <span className='number'>{ mujeresArrG.length}</span> Piezas</p>
+            <p>_Mujer Talla XG: <span className='number'>{ mujeresArrXl.length}</span> Piezas</p>
+            <p>Mujer Talla XXG: <span className='number'>{ mujeresArrXxl.length}</span> Piezas</p>
            
 
 
