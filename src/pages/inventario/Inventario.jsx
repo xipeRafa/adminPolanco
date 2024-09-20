@@ -39,7 +39,11 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     let linoColor = []
     let linoBlanco = []
 
- let linoBlanco38ID = []
+    let pantalonesHombre = []
+
+    let mujeresArr = []
+
+    let mujeresPantalonArr = []
      
 
     arr2.forEach((el, i)=>{
@@ -73,35 +77,130 @@ export default function Inventario({ arr, setGetArr, getArr }) {
 
         if(el.tela === 'lino' && el.category === 'blanco'&& el.name === 'Guayabera' && el.stockHermosillo >= 1 ){
             linoBlanco.push(el.talla)
-            if(el.talla[0] === '38' || el.talla[0] === 'm' ||
-               el.talla[1] === '38' || el.talla[1] === 'm' || 
-               el.talla[2] === '38' || el.talla[2] === 'm' || 
-               el.talla[3] === '38' || el.talla[3] === 'm' ||
-               el.talla[4] === '38' || el.talla[4] === 'm' ||
-               el.talla[5] === '38' || el.talla[5] === 'm' ||
-               el.talla[6] === '38' || el.talla[6] === 'm' ||
-               el.talla[7] === '38' || el.talla[7] === 'm' ||
-               el.talla[8] === '38' || el.talla[8] === 'm' ||
-               el.talla[9] === '38' || el.talla[9] === 'm' ||
-               el.talla[10] === '38' || el.talla[10] === 'm' ||
-               el.talla[11] === '38' || el.talla[11] === 'm' ||
-               el.talla[12] === '38' || el.talla[12] === 'm' ||
-                el.talla[13] === '38' || el.talla[13] === 'm' ||
-                 el.talla[14] === '38' || el.talla[14] === 'm' ||
-                  el.talla[15] === '38' || el.talla[15] === 'm' 
-               )
-            {
-             linoBlanco38ID.push(el.id)
-            }
         }
 
-         //  if(el.tela === 'algodon' && el.category === 'blanco' && el.name === 'Guayabera' && el.stockHermosillo > 0 && el.talla > 0){
-         //     algodonBlanco36.push(el.tallla)
-         // }
+        if(el.name === 'Pantalon' && el.stockHermosillo >= 0 && el.para === 'hombre'){
+           pantalonesHombre.push(el.talla) 
+        }
+
+        if(el.stockHermosillo >= 0 && el.para === 'mujer'){
+            mujeresArr.push(el.talla) 
+        }
+
+        if(el.name === 'Pantalon' && el.stockHermosillo >= 0 && el.para === 'mujer'){
+            mujeresPantalonArr.push(el.talla) 
+        }
     })
 
 
-console.log(linoBlanco38ID)
+
+    console.log(mujeresPantalonArr)
+
+
+     let pantalonesHombre30 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='30'){  
+                pantalonesHombre30.push(el)
+            }
+        })
+    })
+
+      let pantalonesHombre32 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='32'){  
+                pantalonesHombre32.push(el)
+            }
+        })
+    })
+
+        let pantalonesHombre34 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='34'){  
+                pantalonesHombre34.push(el)
+            }
+        })
+    })
+
+    let pantalonesHombre36 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='36'){  
+                pantalonesHombre36.push(el)
+            }
+        })
+    })
+
+     let pantalonesHombre38 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='38'){  
+                pantalonesHombre38.push(el)
+            }
+        })
+    })
+
+      let pantalonesHombre40 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='40'){  
+                pantalonesHombre40.push(el)
+            }
+        })
+    })
+
+       let pantalonesHombre42 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='42'){  
+                pantalonesHombre42.push(el)
+            }
+        })
+    })
+
+       let pantalonesHombre44 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='44'){  
+                pantalonesHombre44.push(el)
+            }
+        })
+    })
+
+         let pantalonesHombre46 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='46'){  
+                pantalonesHombre46.push(el)
+            }
+        })
+    })
+
+            let pantalonesHombre48 = []
+
+    pantalonesHombre.forEach((el, i)=>{
+        el.forEach((el,i)=>{
+            if(el==='48'){  
+                pantalonesHombre48.push(el)
+            }
+        })
+    })
+
+
+// =================== lino Algodon ========================================//// =================== lino Algodon ========================================//
+// =================== lino Algodon ========================================//// =================== lino Algodon ========================================//
+// =================== lino Algodon ========================================//// =================== lino Algodon ========================================//
 
     let algodonBlanco36 = []
 
@@ -631,6 +730,14 @@ console.log(linoBlanco38ID)
                 <span className='number'>{linoBlanco.flat().length}</span> Blancas.
             </h4>
 
+            <h4> 
+                <span className='number'>{pantalonesHombre.flat().length}</span>  Pantalones de Lino. 
+            </h4>
+
+            <h4> 
+                <span className='number'>{mujeresArr.flat().length}</span> Piezas en Ropa de Mujer. 
+            </h4>
+
             <hr />
 
             <p>Guayaberas Blancas Algodon Talla 36: <span className='number'>{algodonBlanco36.length}</span> Piezas</p>
@@ -662,6 +769,7 @@ console.log(linoBlanco38ID)
                <hr />
 
 
+            <h4>Guayaberas Lino </h4>
 
             <p>Guayaberas Blancas Lino Talla 36: <span className='number'>{linoBlanco36.length}</span> Piezas</p>
             <p>Guayaberas Blancas Lino Talla 38: <span className='number'>{linoBlanco38.length}</span> Piezas</p>
@@ -684,7 +792,30 @@ console.log(linoBlanco38ID)
 
 
 
-<hr />
+            <hr />
+
+            <h4>Pantalones</h4>
+
+            <p>Pantalones Hombre Lino Talla 30: <span className='number'>{pantalonesHombre30.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 32: <span className='number'>{pantalonesHombre32.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 34: <span className='number'>{pantalonesHombre34.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 36: <span className='number'>{pantalonesHombre36.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 38: <span className='number'>{pantalonesHombre38.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 40: <span className='number'>{pantalonesHombre40.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 42: <span className='number'>{pantalonesHombre42.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 44: <span className='number'>{pantalonesHombre44.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 46: <span className='number'>{pantalonesHombre46.length}</span> Piezas</p>
+            <p>Pantalones Hombre Lino Talla 48: <span className='number'>{pantalonesHombre48.length}</span> Piezas</p>
+
+   {/*         <h4>Pantalones Mujer</h4>
+
+             <p>Pantalones mujer <span className='number'>{ mujeresPantalonArr.filter(el=>el==='ch').length}</span> Piezas</p>*/}
+           
+
+
+   <hr />
+
+
           
 
             <h4>{preciosHermosilloArr.reduce(( accumulator, currentValue ) => accumulator + currentValue, 0)} - Hermosillo</h4>
