@@ -46,6 +46,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
     }
 
     const[noteState, setNoteState]=useState('')
+    const[efectivoState, setEfectivoState]=useState('')
 
 
 
@@ -98,7 +99,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
         } else {
 
                 el.historiSales.push(dueDate);
-                el.notaDeVenta.push(noteState)
+                el.notaDeVenta.push(efectivoState)
 
         }
 
@@ -126,6 +127,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
             tallaComprada : tallaState,
             sucursal : el.sucursal,
             price : el.price,
+            efectivo : efectivoState
         }
 
 
@@ -136,6 +138,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
             setGetArr(!getArr);
             setTallaState('')
             setNoteState('')
+            setEfectivoState('')
         }, 500);
 
     };
@@ -222,10 +225,11 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
 
                     <input type="text" placeholder='Talla Escogida' value={tallaState} onChange={(e)=>handleTallaState(e)}/><br />
 
-                    <input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/>
-
+                    <input className='mb-3 mt-1' type="number" min='0' placeholder='# Nota de Venta' value={noteState} onChange={(e)=>setNoteState(e.target.value)}/><br />
+                    <input className='mb-3' type="number" min='0' placeholder='$ Efectivo' value={efectivoState} onChange={(e)=>setEfectivoState(e.target.value)}/>
 
                     <br />
+
 
                     <button
                         disabled={el?.stockSanCarlos < 1 || el?.stockHermosillo < 1 ? true : false}

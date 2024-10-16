@@ -152,8 +152,9 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
         
 
    
-            {sucursales.map((el, i) => (
-                <div key={i} className="item">
+            {sucursales.map((el, i) => {
+                console.log(el)
+                return <div key={i} className="item">
                     <hr />
 
                     <div className="texto">
@@ -163,12 +164,13 @@ export default function Entregados({ arrVentas, setGetArrVentas, getArrVentas}) 
                         <p>Producto: {el.name}</p>                      
                         <p>Talla : { el.tallaComprada}</p>
                         <b>Precio: $ { el.price}</b>
+                        <p>Efectivo : { el?.efectivo}</p>
                     </div>
 
 
                     <hr />
                 </div>
-            ))}
+            })}
 
 
         </>

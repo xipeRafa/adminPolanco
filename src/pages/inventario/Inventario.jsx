@@ -603,6 +603,9 @@ export default function Inventario({ arr, setGetArr, getArr }) {
     })
 
 
+  
+
+
      let linoBlanco42 = []
 
     linoBlanco.forEach((el, i)=>{
@@ -623,7 +626,7 @@ export default function Inventario({ arr, setGetArr, getArr }) {
             }
         })
     })
-
+  
 
       let linoBlanco44 = []
 
