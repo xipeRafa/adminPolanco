@@ -99,7 +99,7 @@ export default function Inicio({arr, setGetArr, getArr, UpdateByIdInventario, po
         } else {
 
                 el.historiSales.push(dueDate);
-                el.notaDeVenta.push(efectivoState)
+                el.notaDeVenta.push(noteState)
 
         }
 
